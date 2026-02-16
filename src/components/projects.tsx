@@ -36,7 +36,7 @@ const Projects = () => {
 
 	return (
 		<div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20 about flex flex-col gap-10 projects">
-			<h3 className="text-center">My Projects</h3>
+			<h3 className="header">My Projects</h3>
 			<div className="m-auto grid grid-cols-1  lg:grid-cols-2 gap-5 lg:gap-10">
 				{projects.map((project: any) => {
 					return (

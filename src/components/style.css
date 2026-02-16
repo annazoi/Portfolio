@@ -116,6 +116,14 @@
 	filter: brightness(50%);
 }
 
+.header {
+	font-size: 22px;
+	letter-spacing: 0.2rem;
+	text-align: center;
+	font-weight: bold;
+	/* color: #7564b3; */
+}
+
 @media screen and (max-width: 1024px) {
 	.about .text h2,
 	.about .text h3,
