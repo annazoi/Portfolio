@@ -28,6 +28,7 @@ import asana from '../assets/skills/asana.png';
 import trello from '../assets/skills/trello.png';
 import websockets from '../assets/skills/websockets.png';
 import webrtc from '../assets/skills/webrtc.png';
+import tailwindcss from '../assets/skills/tailwindcss.png';
 
 import { Skill } from '@/interfaces/skills';
 
@@ -67,6 +68,13 @@ const Skills = () => {
 			icon: typescript,
 			description:
 				'A strict syntactical superset of JavaScript that adds static typing, facilitating the development and maintenance of large-scale applications.',
+		},
+		{
+			id: 30,
+			name: 'Tailwind CSS',
+			icon: tailwindcss,
+			description:
+				'A utility-first CSS framework for rapidly building custom user interfaces directly in the markup using predefined classes.',
 		},
 		{
 			id: 5,
@@ -251,7 +259,7 @@ const Skills = () => {
 	};
 
 	return (
-		<div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20 about flex flex-col xl:gap-10 gap-5">
+		<div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20 flex flex-col lg:gap-10 gap-5">
 			<h3 className="header">My Skills</h3>
 			<div className="grid grid-cols-2  gap-4 xl:grid-cols-6 xl:gap-10 md:grid-cols-4 sm:grid-cols-3 pl-2 ">
 				{skills.map((skill: Skill) => (

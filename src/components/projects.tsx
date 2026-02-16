@@ -1,16 +1,22 @@
 'use client';
 
 import './style.css';
-import zivo from '../assets/projects/zivo.png';
-import Image from 'next/image';
-import { ArrowUpRightIcon } from '@heroicons/react/24/outline';
+import Image, { StaticImageData } from 'next/image';
+import { ChevronLeftIcon, ChevronRightIcon, ArrowUpRightIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import zivo from '../assets/projects/zivo.png';
+
+type Project = {
+	id: number;
+	name: string;
+	photo: StaticImageData;
+	description: string;
+	url: string;
+};
 
 const Projects = () => {
-	const [isHovered, setIsHovered] = useState(false);
-
-	const projects = [
+	const projects: Project[] = [
 		{
 			id: 1,
 			name: 'Zivo',
@@ -20,51 +26,107 @@ const Projects = () => {
 		},
 		{
 			id: 2,
-			name: 'name',
+			name: 'Project 2',
 			photo: zivo,
-			description: 'desc',
+			description: 'Second project description.',
 			url: 'https://chat-ionic.vercel.app/',
 		},
 		{
 			id: 3,
-			name: 'name',
+			name: 'Project 3',
 			photo: zivo,
-			description: 'desc',
+			description: 'Third project description.',
+			url: 'https://chat-ionic.vercel.app/',
+		},
+		{
+			id: 4,
+			name: 'Project 4',
+			photo: zivo,
+			description: 'Fourth project description.',
 			url: 'https://chat-ionic.vercel.app/',
 		},
 	];
 
-	return (
-		<div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20 about flex flex-col gap-10 projects">
-			<h3 className="header">My Projects</h3>
-			<div className="m-auto grid grid-cols-1  lg:grid-cols-2 gap-5 lg:gap-10">
-				{projects.map((project: any) => {
-					return (
-						<motion.div className="project" key={project.id} whileHover="hovered">
-							<div>
-								<Image src={project.photo} alt={project.name} />
-							</div>
-							<a href={project.url} target="_blank" rel="noopener noreferrer">
-								<motion.div
-									className="name absolute left-1/2 bottom-4 transform -translate-x-1/2 bg-[#0b0820] p-5 rounded-lg w-[108%] text-white flex items-center cursor-pointer "
-									initial={{ opacity: 0, y: -20 }}
-									variants={{
-										hovered: { opacity: 1, y: 0 },
-										initial: { opacity: 0, y: -20 },
-									}}
-									transition={{ duration: 0.25 }}
-								>
-									<div className="flex flex-col gap-4">
-										<span className="font-semibold">{project.name}</span>
-										<span className="text-sm max-w-100">{project.description}</span>
-									</div>
+	const [visible, setVisible] = useState(3);
+	const [index, setIndex] = useState(3);
 
-									<ArrowUpRightIcon className="h-5 w-5 mt-2 ml-auto" />
-								</motion.div>
+	// Detect screen size
+	useEffect(() => {
+		const handleResize = () => {
+			if (window.innerWidth < 768) {
+				setVisible(1);
+			} else if (window.innerWidth < 1024) {
+				setVisible(2);
+			} else {
+				setVisible(3);
+			}
+		};
+
+		handleResize();
+		window.addEventListener('resize', handleResize);
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
+
+	const extendedProjects = [...projects.slice(-visible), ...projects, ...projects.slice(0, visible)];
+
+	const next = () => setIndex((prev) => prev + 1);
+	const prev = () => setIndex((prev) => prev - 1);
+
+	return (
+		<div className="mx-auto max-w-7xl mt-20 px-4 relative overflow-hidden">
+			<h3 className="header text-center mb-10">My Projects</h3>
+
+			<div className="relative overflow-hidden">
+				<motion.div
+					className="flex"
+					animate={{
+						x: `-${index * (100 / visible)}%`,
+					}}
+					transition={{ duration: 0.5 }}
+					onAnimationComplete={() => {
+						if (index >= projects.length + visible) {
+							setIndex(visible);
+						}
+						if (index < visible) {
+							setIndex(projects.length + visible - 1);
+						}
+					}}
+				>
+					{extendedProjects.map((project, i) => (
+						<div key={i} className="flex-shrink-0 px-3 relative" style={{ width: `${100 / visible}%` }}>
+							<a href={project.url} target="_blank">
+								<div className="relative overflow-hidden rounded-2xl">
+									<Image
+										src={project.photo}
+										alt={project.name}
+										className=" w-full hover:scale-106 transform transition-transform duration-300 object-cover "
+									/>
+								</div>
+								<div className="absolute left-6 top-4  px-1.5 py-0.5 rounded-full bg-[#17182F]">
+									{project.name}
+								</div>
+
+								<div className="absolute left-0 bottom-4  px-1.5 py-0.5 rounded-[15px] bg-[#17182F]  border-2 ">
+									<p className="text-sm p-2">{project.description}</p>
+								</div>
 							</a>
-						</motion.div>
-					);
-				})}
+						</div>
+					))}
+				</motion.div>
+
+				<button
+					onClick={prev}
+					className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full text-white z-10"
+				>
+					<ChevronLeftIcon className="h-6 w-6" />
+				</button>
+
+				<button
+					onClick={next}
+					className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full text-white z-10"
+				>
+					<ChevronRightIcon className="h-6 w-6" />
+				</button>
 			</div>
 		</div>
 	);

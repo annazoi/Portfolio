@@ -67,7 +67,7 @@
 	/* font-size: 20px; */
 }
 
-.project {
+/* .project {
 	border-top: 2.5rem solid #1f1a30;
 	border-right: 2.5rem solid #1f1a30;
 	border-left: 2.5rem solid #1f1a30;
@@ -78,7 +78,6 @@
 }
 
 .project:hover {
-	/* border: 2.5rem solid #2f2386; */
 	border-top: 2.5rem solid #2c2546;
 	border-right: 2.5rem solid #2c2546;
 	border-left: 2.5rem solid #2c2546;
@@ -92,11 +91,7 @@
 
 .project .name {
 	background-image: linear-gradient(to bottom, rgb(65, 26, 83), #4f39f6);
-}
-
-.project .name .desc {
-	font-size: 16px;
-}
+} */
 
 .skill {
 	padding: 1.5rem 0.5rem;
@@ -122,6 +117,30 @@
 	text-align: center;
 	font-weight: bold;
 	/* color: #7564b3; */
+}
+
+.education img {
+	width: 100%;
+	height: auto;
+	border: 0.2rem solid #4f39f6;
+	border-radius: 50%;
+	transition: all 0.3s linear;
+	max-width: 12rem;
+}
+
+.education img:hover {
+	border: 0.2rem solid #744484;
+}
+
+.education svg path {
+	fill: red;
+}
+
+.education .background {
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: 120%;
+	background-image: url('../assets/studies.png');
 }
 
 @media screen and (max-width: 1024px) {
