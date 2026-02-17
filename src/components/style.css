@@ -67,6 +67,9 @@
 	/* font-size: 20px; */
 }
 
+.project:hover .description {
+	background-color: #5f6396;
+}
 /* .project {
 	border-top: 2.5rem solid #1f1a30;
 	border-right: 2.5rem solid #1f1a30;
@@ -130,10 +133,6 @@
 
 .education img:hover {
 	border: 0.2rem solid #744484;
-}
-
-.education svg path {
-	fill: red;
 }
 
 .education .background {

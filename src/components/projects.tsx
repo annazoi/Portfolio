@@ -73,8 +73,8 @@ const Projects = () => {
 	const prev = () => setIndex((prev) => prev - 1);
 
 	return (
-		<div className="mx-auto max-w-7xl mt-20 px-4 relative overflow-hidden">
-			<h3 className="header text-center mb-10">My Projects</h3>
+		<div className="mx-auto mt-20 px-4 relative overflow-hidden">
+			<h3 className="header mb-10 max-w-7xl px-2 sm:px-6 lg:px-8 m-auto">My Projects</h3>
 
 			<div className="relative overflow-hidden">
 				<motion.div
@@ -93,21 +93,20 @@ const Projects = () => {
 					}}
 				>
 					{extendedProjects.map((project, i) => (
-						<div key={i} className="flex-shrink-0 px-3 relative" style={{ width: `${100 / visible}%` }}>
-							<a href={project.url} target="_blank">
+						<div key={i} className="flex-shrink-0 px-3 relative project" style={{ width: `${100 / visible}%` }}>
+							<a href={project.url} target="_blank" className="relative">
 								<div className="relative overflow-hidden rounded-2xl">
 									<Image
 										src={project.photo}
 										alt={project.name}
-										className=" w-full hover:scale-106 transform transition-transform duration-300 object-cover "
+										className=" w-full hover:scale-110 transform transition-transform duration-500 ease-in-out object-cover delay-100"
 									/>
 								</div>
-								<div className="absolute left-6 top-4  px-1.5 py-0.5 rounded-full bg-[#17182F]">
-									{project.name}
+								<div className="absolute left-6 top-4  px-2 py-1 rounded-full bg-gradient-to-b from-[#3b3d5b] to-[#17182F]">
+									<p className="text-sm">{project.name}</p>
 								</div>
-
-								<div className="absolute left-0 bottom-4  px-1.5 py-0.5 rounded-[15px] bg-[#17182F]  border-2 ">
-									<p className="text-sm p-2">{project.description}</p>
+								<div className="absolute bottom-5 px-1.5 py-0.5 rounded-[15px] bg-[#17182F] w-full max-w-[90%] left-1/2 -translate-x-1/2 description  transition-bg duration-500 ease-in-out">
+									<p className="text-xs p-2">{project.description}</p>
 								</div>
 							</a>
 						</div>
@@ -116,14 +115,14 @@ const Projects = () => {
 
 				<button
 					onClick={prev}
-					className="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full text-white z-10"
+					className="absolute left-5 md:left-10 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full text-white z-10"
 				>
 					<ChevronLeftIcon className="h-6 w-6" />
 				</button>
 
 				<button
 					onClick={next}
-					className="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full text-white z-10"
+					className="absolute right-5 md:right-10 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full text-white z-10"
 				>
 					<ChevronRightIcon className="h-6 w-6" />
 				</button>
