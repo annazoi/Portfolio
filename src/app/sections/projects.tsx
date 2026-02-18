@@ -6,40 +6,33 @@ import { ChevronLeftIcon, ChevronRightIcon, ArrowUpRightIcon } from '@heroicons/
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import zivo from '../assets/projects/zivo.png';
-
-type Project = {
-	id: number;
-	name: string;
-	photo: StaticImageData;
-	description: string;
-	url: string;
-};
+import { Project } from '../../interfaces';
 
 const Projects = () => {
 	const projects: Project[] = [
 		{
-			id: 1,
+			id: '1',
 			name: 'Zivo',
 			photo: zivo,
 			description: 'Focused on real-time collaboration, secure messaging, and smart AI assistants.',
 			url: 'https://chat-ionic.vercel.app/',
 		},
 		{
-			id: 2,
+			id: '2',
 			name: 'Project 2',
 			photo: zivo,
 			description: 'Second project description.',
 			url: 'https://chat-ionic.vercel.app/',
 		},
 		{
-			id: 3,
+			id: '3',
 			name: 'Project 3',
 			photo: zivo,
 			description: 'Third project description.',
 			url: 'https://chat-ionic.vercel.app/',
 		},
 		{
-			id: 4,
+			id: '4',
 			name: 'Project 4',
 			photo: zivo,
 			description: 'Fourth project description.',
@@ -50,7 +43,6 @@ const Projects = () => {
 	const [visible, setVisible] = useState(3);
 	const [index, setIndex] = useState(3);
 
-	// Detect screen size
 	useEffect(() => {
 		const handleResize = () => {
 			if (window.innerWidth < 768) {

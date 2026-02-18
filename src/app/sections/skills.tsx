@@ -30,11 +30,11 @@ import websockets from '../assets/skills/websockets.png';
 import webrtc from '../assets/skills/webrtc.png';
 import tailwindcss from '../assets/skills/tailwindcss.png';
 
-import { Skill } from '@/interfaces/skills';
+import { Skill } from '@/interfaces';
 
 import Image from 'next/image';
 import { useState } from 'react';
-import Modal from './ui/modal';
+import Modal from '../../components/ui/modal';
 
 const Skills = () => {
 	const [isOpened, setIsOpened] = useState(false);
@@ -42,210 +42,210 @@ const Skills = () => {
 
 	const skills: Skill[] = [
 		{
-			id: 1,
+			id: '1',
 			name: 'ReactJS',
 			icon: react,
 			description:
 				'A declarative JavaScript library for building dynamic user interfaces based on reusable components and efficient state management.',
 		},
 		{
-			id: 2,
+			id: '2',
 			name: 'NextJS',
 			icon: nextjs,
 			description:
 				'A React framework that enables features such as server-side rendering and static site generation for optimized performance and SEO.',
 		},
 		{
-			id: 3,
+			id: '3',
 			name: 'Javascript',
 			icon: javascript,
 			description:
 				'The fundamental programming language of the web that enables complex functionality and interactivity on web pages.',
 		},
 		{
-			id: 4,
+			id: '4',
 			name: 'Typescript',
 			icon: typescript,
 			description:
 				'A strict syntactical superset of JavaScript that adds static typing, facilitating the development and maintenance of large-scale applications.',
 		},
 		{
-			id: 30,
+			id: '30',
 			name: 'Tailwind CSS',
 			icon: tailwindcss,
 			description:
 				'A utility-first CSS framework for rapidly building custom user interfaces directly in the markup using predefined classes.',
 		},
 		{
-			id: 5,
+			id: '5',
 			name: 'HTML',
 			icon: html,
 			description:
 				'The standard markup language for creating the structure and content of documents displayed in a web browser.',
 		},
 		{
-			id: 6,
+			id: '6',
 			name: 'CSS',
 			icon: css,
 			description:
 				'A stylesheet language used for describing the presentation, layout, and visual formatting of web documents.',
 		},
 		{
-			id: 7,
+			id: '7',
 			name: 'Firebase',
 			icon: firebase,
 			description:
 				'A Google platform offering cloud services such as real-time databases, authentication, and hosting without the need for manual server management.',
 		},
 		{
-			id: 8,
+			id: '8',
 			name: 'MongoDB',
 			icon: mongodb,
 			description:
 				'A document-oriented NoSQL database that provides high scalability and flexibility in data structuring through JSON-like documents.',
 		},
 		{
-			id: 9,
+			id: '9',
 			name: 'MariaDB',
 			icon: mariadb,
 			description:
 				'A relational database management system (RDBMS) developed as a community-led fork of MySQL, emphasizing performance and security.',
 		},
 		{
-			id: 10,
+			id: '10',
 			name: 'PostgreSQL',
 			icon: postgresql,
 			description:
 				'An advanced object-relational database system known for its reliability, feature robustness, and data integrity.',
 		},
 		{
-			id: 11,
+			id: '11',
 			name: 'WebSockets',
 			icon: websockets,
 			description:
 				'A communication protocol that enables persistent, full-duplex, and real-time data exchange between a client and a server.',
 		},
 		{
-			id: 12,
+			id: '12',
 			name: 'WebRTC',
 			icon: webrtc,
 			description:
 				'An open-source project that provides browsers and mobile applications with real-time communication capabilities via peer-to-peer APIs.',
 		},
 		{
-			id: 13,
+			id: '13',
 			name: 'Prisma',
 			icon: prisma,
 			description:
 				'A modern Object-Relational Mapper (ORM) for Node.js and TypeScript that simplifies database access and schema management.',
 		},
 		{
-			id: 14,
+			id: '14',
 			name: 'NodeJS',
 			icon: nodejs,
 			description:
 				"A JavaScript runtime built on Chrome's V8 engine that allows the execution of JavaScript code on the server side.",
 		},
 		{
-			id: 15,
+			id: '15',
 			name: 'ExpressJS',
 			icon: expressjs,
 			description:
 				'A minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.',
 		},
 		{
-			id: 16,
+			id: '16',
 			name: 'NestJS',
 			icon: nestjs,
 			description:
 				'A progressive Node.js framework for building efficient, reliable, and scalable server-side applications using modern JavaScript/TypeScript.',
 		},
 		{
-			id: 17,
+			id: '17',
 			name: 'PHP',
 			icon: php,
 			description:
 				'A widely-used open-source general-purpose scripting language that is especially suited for web development and can be embedded into HTML.',
 		},
 		{
-			id: 18,
+			id: '18',
 			name: 'Java',
 			icon: java,
 			description:
 				'A high-level, class-based, object-oriented programming language designed to have as few implementation dependencies as possible.',
 		},
 		{
-			id: 19,
+			id: '19',
 			name: 'Python',
 			icon: python,
 			description:
 				'An interpreted, high-level programming language known for its clear syntax, readability, and extensive support for various libraries.',
 		},
 		{
-			id: 20,
+			id: '20',
 			name: 'C',
 			icon: c,
 			description:
 				'A general-purpose, low-level programming language that provides direct access to memory and serves as the foundation for many modern languages.',
 		},
 		{
-			id: 21,
+			id: '21',
 			name: 'Prolog',
 			icon: prolog,
 			description:
 				'A logic programming language associated with artificial intelligence, computational linguistics, and formal logic reasoning.',
 		},
 		{
-			id: 22,
+			id: '22',
 			name: 'Android Studio',
 			icon: androidStudio,
 			description:
 				'The official Integrated Development Environment (IDE) for Android app development, based on IntelliJ IDEA.',
 		},
 		{
-			id: 23,
+			id: '23',
 			name: 'Ionic',
 			icon: ionic,
 			description:
 				'A complete open-source SDK for hybrid mobile app development, using web technologies like HTML, CSS, and JavaScript.',
 		},
 		{
-			id: 24,
+			id: '24',
 			name: 'Material UI',
 			icon: materialUI,
 			description:
 				"A popular React component library that implements Google's Material Design, providing pre-built elements for consistent UI development.",
 		},
 		{
-			id: 25,
+			id: '25',
 			name: 'Chakra UI',
 			icon: chakraUI,
 			description:
 				'A simple, modular, and accessible component library that gives the building blocks needed to build React applications with ease.',
 		},
 		{
-			id: 26,
+			id: '26',
 			name: 'Git',
 			icon: git,
 			description:
 				'A distributed version control system used for tracking changes in source code during software development.',
 		},
 		{
-			id: 27,
+			id: '27',
 			name: 'Slack',
 			icon: slack,
 			description:
 				'A cloud-based proprietary instant messaging platform designed for professional team collaboration and communication.',
 		},
 		{
-			id: 28,
+			id: '28',
 			name: 'Asana',
 			icon: asana,
 			description:
 				'A web and mobile application designed to help teams organize, track, and manage their work and project workflows.',
 		},
 		{
-			id: 29,
+			id: '29',
 			name: 'Trello',
 			icon: trello,
 			description:

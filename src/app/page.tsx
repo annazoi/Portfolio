@@ -1,10 +1,10 @@
 import Navbar from '@/components/ui/navbar';
-import About from '@/components/about';
-import Projects from '@/components/projects';
-import Skills from '@/components/skills';
-import Education from '@/components/education';
-import Experience from '@/components/experience';
-import Contact from '@/components/contact';
+import About from '@/app/sections/about';
+import Projects from '@/app/sections/projects';
+import Skills from '@/app/sections/skills';
+import Education from '@/app/sections/education';
+import Experience from '@/app/sections/experience';
+import Contact from '@/app/sections/contact';
 
 export default function Home() {
 	return (
