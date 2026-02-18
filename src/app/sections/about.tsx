@@ -1,7 +1,7 @@
 'use client';
 
 import './style.css';
-import photo from '../assets/photo.png';
+import photo from '@/assets/photo.png';
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import CountUp from 'react-countup';

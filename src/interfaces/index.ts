@@ -16,5 +16,6 @@ export interface Project {
 export interface Site {
 	id: string;
 	name: string;
+	photo: any;
 	description: string;
 }

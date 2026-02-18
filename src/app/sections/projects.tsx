@@ -5,7 +5,7 @@ import Image, { StaticImageData } from 'next/image';
 import { ChevronLeftIcon, ChevronRightIcon, ArrowUpRightIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import zivo from '../assets/projects/zivo.png';
+import zivo from '@/assets/projects/zivo.png';
 import { Project } from '../../interfaces';
 
 const Projects = () => {
@@ -94,7 +94,7 @@ const Projects = () => {
 										className=" w-full hover:scale-110 transform transition-transform duration-500 ease-in-out object-cover delay-100"
 									/>
 								</div>
-								<div className="absolute left-6 top-4  px-2 py-1 rounded-full bg-gradient-to-b from-[#3b3d5b] to-[#17182F]">
+								<div className="absolute left-6 top-4 px-2 py-1 rounded-full bg-gradient-to-b from-[#3b3d5b] to-[#17182F]">
 									<p className="text-sm">{project.name}</p>
 								</div>
 								<div className="absolute bottom-5 px-1.5 py-0.5 rounded-[15px] bg-[#17182F] w-full max-w-[90%] left-1/2 -translate-x-1/2 description transition-bg duration-500 ease-in-out">

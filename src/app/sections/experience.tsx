@@ -1,28 +1,57 @@
 'use client';
 import { Site } from '@/interfaces';
+import Image from 'next/image';
+import zivo from '@/assets/projects/zivo.png';
 
 const Experience = () => {
 	const sites: Site[] = [
 		{
 			id: '1',
 			name: 'Avelia Villa',
-			description: '',
+			photo: zivo,
+			description:
+				'A vacation villa website that presents photos of the villa and information about its facilities. Visitors can explore activities available in the surrounding area and make a booking for the villa.',
 		},
 		{
 			id: '2',
 			name: 'Sunterra',
-			description: '',
+			photo: zivo,
+			description:
+				'A vacation villa website that presents photos of the villa and information about its facilities. Visitors can explore activities available in the surrounding area and make a booking for the villa.',
 		},
 		{
 			id: '3',
 			name: 'Cretantour',
-			description: '',
+			photo: zivo,
+			description:
+				'A vacation villa website that presents photos of the villa and information about its facilities. Visitors can explore activities available in the surrounding area and make a booking for the villa.',
 		},
 	];
 
 	return (
-		<div id="experience">
+		<div id="experience" className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20 flex flex-col gap-20">
 			<h3 className="header mt-10">Experience</h3>
+			<div className="flex flex-col m-auto gap-30">
+				{sites.map((site: Site) => (
+					<div className="flex experience" key={site.id}>
+						<div className="flex flex-col gap-4 m-auto">
+							<h3 className="font-bold text-lg name">{site.name}</h3>
+							<div className="max-w-xl p-5 rounded-xl bg-white/10 backdrop-blur-xl h-fit">
+								<p className="text-xs">{site.description}</p>
+							</div>
+						</div>
+						<div className="border-l-[2rem] border-t-[1.2rem] border-[#17182f] -ml-[4rem] rounded-tl-xl rounded-tr-xl bg-[#17182f]">
+							<Image
+								src={site.photo}
+								alt={site.name}
+								width={380}
+								height={380}
+								className="rounded-tl-xl rounded-br-xl photo"
+							></Image>
+						</div>
+					</div>
+				))}
+			</div>
 		</div>
 	);
 };

@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import Image from 'next/image';
-import university_logo from '../assets/elmepa.png';
+import university_logo from '@/assets/elmepa.png';
 import { animate } from 'animejs';
 
 const Education = () => {

@@ -139,7 +139,14 @@
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: 120%;
-	background-image: url('../assets/studies.png');
+	background-image: url('@/assets/studies.png');
+}
+.experience .name:hover .photo {
+	background-color: #5f6396;
+}
+
+.experience img:hover {
+	background-color: #5f6396;
 }
 
 @media screen and (max-width: 1024px) {
