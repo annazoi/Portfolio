@@ -259,7 +259,7 @@ const Skills = () => {
 	};
 
 	return (
-		<div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20 flex flex-col lg:gap-10 gap-5">
+		<div id="skills" className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20 flex flex-col lg:gap-10 gap-5">
 			<h3 className="header">My Skills</h3>
 			<div className="grid grid-cols-2  gap-4 xl:grid-cols-6 xl:gap-10 md:grid-cols-4 sm:grid-cols-3 pl-2 ">
 				{skills.map((skill: Skill) => (

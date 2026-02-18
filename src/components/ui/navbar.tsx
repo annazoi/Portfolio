@@ -10,11 +10,12 @@ import {
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const navigation = [
-	{ name: 'About', href: '#', current: true },
-	{ name: 'Projects', href: '#', current: false },
-	{ name: 'Education', href: '#', current: false },
-	{ name: 'Experience', href: '#', current: false },
-	{ name: 'Contact', href: '#', current: false },
+	{ name: 'About', href: '#about', current: true },
+	{ name: 'Projects', href: '#projects', current: false },
+	{ name: 'Skills', href: '#skills', current: false },
+	{ name: 'Education', href: '#education', current: false },
+	{ name: 'Experience', href: '#experience', current: false },
+	{ name: 'Contact', href: '#contact', current: false },
 ];
 
 function classNames(...classes: (string | false | null | undefined)[]) {
@@ -30,7 +31,6 @@ export default function Navbar() {
 			<div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
 				<div className="relative flex h-14 items-center justify-between sm:h-20">
 					<div className="absolute inset-y-0 right-0 flex items-center sm:hidden">
-						{/* Mobile menu button*/}
 						<DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
 							<span className="absolute -inset-0.5" />
 							<span className="sr-only">Open main menu</span>

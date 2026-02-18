@@ -73,7 +73,7 @@ const Projects = () => {
 	const prev = () => setIndex((prev) => prev - 1);
 
 	return (
-		<div className="mx-auto mt-20 px-4 relative overflow-hidden">
+		<div className="mx-auto mt-20 px-4 relative overflow-hidden" id="projects">
 			<h3 className="header mb-10 max-w-7xl px-2 sm:px-6 lg:px-8 m-auto">My Projects</h3>
 
 			<div className="relative overflow-hidden">
@@ -105,7 +105,7 @@ const Projects = () => {
 								<div className="absolute left-6 top-4  px-2 py-1 rounded-full bg-gradient-to-b from-[#3b3d5b] to-[#17182F]">
 									<p className="text-sm">{project.name}</p>
 								</div>
-								<div className="absolute bottom-5 px-1.5 py-0.5 rounded-[15px] bg-[#17182F] w-full max-w-[90%] left-1/2 -translate-x-1/2 description  transition-bg duration-500 ease-in-out">
+								<div className="absolute bottom-5 px-1.5 py-0.5 rounded-[15px] bg-[#17182F] w-full max-w-[90%] left-1/2 -translate-x-1/2 description transition-bg duration-500 ease-in-out">
 									<p className="text-xs p-2">{project.description}</p>
 								</div>
 							</a>

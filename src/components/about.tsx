@@ -17,7 +17,7 @@ const About = () => {
 	];
 
 	return (
-		<div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20 about flex flex-col gap-20">
+		<div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20 about flex flex-col gap-20" id="about">
 			<div className="flex flex-col-reverse items-center gap-10 lg:flex-row lg:gap-20">
 				<div className="text flex flex-col gap-8">
 					<h3>I am Anna Zoi</h3>
@@ -48,7 +48,7 @@ const About = () => {
 						viewport={{ once: true, amount: 0.5 }}
 						className="text-center"
 					>
-						<p className="text-3xl font-bold text-indigo-600">
+						<p className="text-3xl font-bold text-[#5f6396]">
 							<CountUp end={item.value} duration={2.5} enableScrollSpy />
 							{item.suffix}
 						</p>
