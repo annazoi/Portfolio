@@ -264,7 +264,10 @@ const Skills = () => {
 			<div className="grid grid-cols-2  gap-4 xl:grid-cols-6 xl:gap-10 md:grid-cols-4 sm:grid-cols-3 pl-2 ">
 				{skills.map((skill: Skill) => (
 					<div key={skill.id}>
-						<div className="skill flex flex-col xl:gap-6 gap-2" onClick={() => handleSkillClick(skill)}>
+						<div
+							className="skill flex flex-col xl:gap-6 gap-2 cursor-pointer"
+							onClick={() => handleSkillClick(skill)}
+						>
 							<Image src={skill.icon} alt={skill.name} width={60} height={60} className="m-auto"></Image>
 							<h2 className="text-center">{skill.name}</h2>
 						</div>
