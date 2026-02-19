@@ -2,7 +2,7 @@
 
 import './style.css';
 import Image, { StaticImageData } from 'next/image';
-import { ChevronLeftIcon, ChevronRightIcon, ArrowUpRightIcon } from '@heroicons/react/24/outline';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import zivo from '@/assets/projects/zivo.png';
