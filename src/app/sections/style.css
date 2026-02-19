@@ -145,8 +145,34 @@
 	background-color: #5f6396;
 }
 
-.experience img:hover {
-	background-color: #5f6396;
+.experience img {
+}
+
+.experience .photo:hover {
+	border-top: 1.2rem solid #373a58;
+	border-left: 2rem solid #373a58;
+	background-color: #373a58;
+}
+
+.experience:nth-child(even) .photo {
+	margin-left: 0;
+	margin-right: -4rem;
+	border-left: 0;
+	border-right: 2rem solid #17182f;
+}
+
+.experience:nth-child(even) .photo:hover {
+	border-right: 2rem solid #373a58;
+}
+
+.experience:nth-child(even) img {
+	border-radius: unset;
+	border-bottom-left-radius: 0.75rem;
+	border-top-right-radius: 0.75rem;
+}
+
+.experience:nth-child(even) h3 {
+	text-align: right;
 }
 
 @media screen and (max-width: 1024px) {
