@@ -42,7 +42,7 @@ const Education = () => {
 	return (
 		<div
 			id="education"
-			className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20 education flex flex-col gap-5 lg:gap-10"
+			className="mx-auto max-w-[100rem] px-2 sm:px-6 lg:px-8 mt-20 education flex flex-col gap-5 lg:gap-10"
 		>
 			<h3 className="header">Education</h3>
 			<div

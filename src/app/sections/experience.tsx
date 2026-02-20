@@ -55,7 +55,7 @@ const Experience = () => {
 	};
 
 	return (
-		<div id="experience" className="relative mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20 flex flex-col gap-20">
+		<div id="experience" className="relative mx-auto max-w-[100rem] px-2 sm:px-6 lg:px-8 mt-20 flex flex-col gap-20">
 			<h3 className="header mt-10">Work Experience</h3>
 
 			<div className="overflow-hidden">
@@ -99,11 +99,11 @@ const Experience = () => {
 											</div>
 										</div>
 
-										<div className="border-l-[2rem] border-t-[1.2rem] border-[#17182f] -ml-[4rem] rounded-tl-xl rounded-tr-xl bg-[#17182f] transition duration-500 overflow-hidden photo cursor-pointer">
+										<div className="border-l-[2rem] border-t-[1.2rem] border-[#17182f] -ml-[13rem] rounded-tl-xl rounded-tr-xl bg-[#17182f] transition duration-500 overflow-hidden photo cursor-pointer">
 											<Image
 												src={site.photo}
 												alt={site.name}
-												width={500}
+												width={600}
 												className="rounded-tl-xl rounded-br-xl hover:scale-110 transition duration-500 ease-in-out"
 											/>
 										</div>

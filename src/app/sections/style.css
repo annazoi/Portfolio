@@ -109,6 +109,13 @@
 	border: 1px solid #7564b3;
 	filter: unset;
 }
+.skill img {
+	transition: scale 0.2s ease-in-out;
+}
+
+.skill:hover img {
+	scale: 1.15;
+}
 
 .skill {
 	filter: brightness(50%);
@@ -156,7 +163,7 @@
 
 .experience:nth-child(even) .photo {
 	margin-left: 0;
-	margin-right: -4rem;
+	margin-right: -13rem;
 	border-left: 0;
 	border-right: 2rem solid #17182f;
 }
