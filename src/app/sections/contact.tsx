@@ -1,13 +1,13 @@
 'use client';
-import Textarea from '@/components/textarea';
+import Textarea from '@/components/ui/textarea';
 import Input from '@/components/ui/input';
 
 const Contact = () => {
 	return (
-		<div id="contact" className="relative mx-auto max-w-[100rem] px-2 sm:px-6 lg:px-8 mt-20 flex flex-col gap-20">
+		<div id="contact" className="relative mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20 flex flex-col gap-20">
 			<h3 className="header mt-10">Contact</h3>
-			<div>
-				<h3></h3>
+			<div className="max-w-xl">
+				<h3>Let’s work together!</h3>
 				<p></p>
 				<div className="flex flex-col gap-10">
 					<div className="flex gap-10">

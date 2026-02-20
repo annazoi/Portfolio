@@ -65,7 +65,7 @@ const Projects = () => {
 	const prev = () => setIndex((prev) => prev - 1);
 
 	return (
-		<div className="mx-auto mt-20 px-4 relative overflow-hidden max-w-[100rem]" id="projects">
+		<div className="mx-auto mt-20 px-4 relative overflow-hidden max-w-7xl" id="projects">
 			<h3 className="header mb-10 max-w-7xl px-2 sm:px-6 lg:px-8 m-auto">My Projects</h3>
 
 			<div className="relative overflow-hidden">

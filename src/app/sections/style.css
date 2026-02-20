@@ -163,7 +163,7 @@
 
 .experience:nth-child(even) .photo {
 	margin-left: 0;
-	margin-right: -13rem;
+	margin-right: -4rem;
 	border-left: 0;
 	border-right: 2rem solid #17182f;
 }
@@ -180,6 +180,24 @@
 
 .experience:nth-child(even) h3 {
 	text-align: right;
+}
+
+.project img {
+	filter: brightness(90%);
+	transition: all 0.3s ease-in-out;
+}
+
+.project:hover img {
+	filter: unset;
+}
+
+.experience img {
+	transition: all 0.3s ease-in-out;
+	filter: brightness(90%);
+}
+
+.experience img:hover {
+	filter: unset;
 }
 
 @media screen and (max-width: 1024px) {

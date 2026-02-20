@@ -12,7 +12,7 @@ export default function Textarea({ name, label }: Textarea) {
 				{label}
 			</label>
 			<div className="mt-2">
-				<div className="flex items-center rounded-md bg-white/5 pl-3 outline-1 -outline-offset-1 outline-gray-600 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-500">
+				<div className="flex items-center rounded-md bg-white/5 outline-1 -outline-offset-1 outline-gray-600 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-500">
 					<textarea
 						id={name}
 						name={name}

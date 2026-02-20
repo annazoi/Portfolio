@@ -17,7 +17,7 @@ const About = () => {
 	];
 
 	return (
-		<div className="mx-auto max-w-[100rem] px-2 sm:px-6 lg:px-8 mt-20 about flex flex-col gap-20" id="about">
+		<div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20 about flex flex-col gap-20" id="about">
 			<div className="flex flex-col-reverse items-center gap-10 lg:flex-row lg:gap-20">
 				<div className="text flex flex-col gap-8">
 					<h3>I am Anna Zoi</h3>
