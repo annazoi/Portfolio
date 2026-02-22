@@ -7,20 +7,18 @@ interface Input {
 
 export default function Input({ name, label }: Input) {
 	return (
-		<div className="w-full">
-			<label htmlFor={name} className="block text-sm/6 font-medium text-white">
+		<div className="w-full group">
+			<label htmlFor={name} className="block text-sm font-medium text-slate-400 group-focus-within:text-primary transition-colors mb-2 ml-1">
 				{label}
 			</label>
-			<div className="mt-2">
-				<div className="flex items-center rounded-md bg-white/5 outline-1 -outline-offset-1 outline-gray-600 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-500">
-					<input
-						id={name}
-						name={name}
-						type="text"
-						placeholder={name}
-						className="block min-w-0 grow bg-gray-800 py-1.5 pr-3 pl-1 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6"
-					/>
-				</div>
+			<div className="relative">
+				<input
+					id={name}
+					name={name}
+					type="text"
+					placeholder={name}
+					className="block w-full bg-white/5 border border-white/10 rounded-2xl py-4 px-6 text-white placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300 glass"
+				/>
 			</div>
 		</div>
 	);

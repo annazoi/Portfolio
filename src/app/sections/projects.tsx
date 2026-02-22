@@ -65,16 +65,19 @@ const Projects = () => {
 	const prev = () => setIndex((prev) => prev - 1);
 
 	return (
-		<div className="mx-auto mt-20 px-4 relative overflow-hidden max-w-7xl" id="projects">
-			<h3 className="header mb-10 max-w-7xl px-2 sm:px-6 lg:px-8 m-auto">My Projects</h3>
+		<div className="mx-auto mt-32 px-4 relative overflow-hidden max-w-7xl" id="projects">
+			<div className="flex flex-col items-center gap-4 mb-16">
+				<h3 className="header">Featured Projects</h3>
+				<p className="text-slate-400 text-center max-w-2xl">A selection of my recent work, ranging from real-time collaboration tools to complex full-stack applications.</p>
+			</div>
 
-			<div className="relative overflow-hidden">
+			<div className="relative group/carousel">
 				<motion.div
 					className="flex"
 					animate={{
 						x: `-${index * (100 / visible)}%`,
 					}}
-					transition={{ duration: 0.5 }}
+					transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
 					onAnimationComplete={() => {
 						if (index >= projects.length + visible) {
 							setIndex(visible);
@@ -85,20 +88,47 @@ const Projects = () => {
 					}}
 				>
 					{extendedProjects.map((project, i) => (
-						<div key={i} className="flex-shrink-0 px-3 relative project" style={{ width: `${100 / visible}%` }}>
-							<a href={project.url} target="_blank" className="relative">
-								<div className="relative overflow-hidden rounded-2xl">
-									<Image
-										src={project.photo}
-										alt={project.name}
-										className=" w-full hover:scale-110 transform transition-transform duration-500 ease-in-out object-cover delay-100"
-									/>
-								</div>
-								<div className="absolute left-6 top-4 px-2 py-1 rounded-full bg-gradient-to-b from-[#3b3d5b] to-[#17182F]">
-									<p className="text-sm">{project.name}</p>
-								</div>
-								<div className="absolute bottom-5 px-1.5 py-0.5 rounded-[15px] bg-[#17182F] w-full max-w-[90%] left-1/2 -translate-x-1/2 description transition-bg duration-500 ease-in-out">
-									<p className="text-xs p-2">{project.description}</p>
+						<div key={i} className="flex-shrink-0 px-4 relative project group" style={{ width: `${100 / visible}%` }}>
+							<a href={project.url} target="_blank" className="block relative h-full">
+								{/* Animated Border Wrapper */}
+								<div className="relative p-[1px] rounded-[2rem] overflow-hidden bg-white/10 group-hover:bg-transparent transition-colors duration-500">
+									<div className="absolute inset-0 opacity-0 group-hover:opacity-100 animate-border-flow transition-opacity duration-500" />
+
+									<div className="relative overflow-hidden rounded-[calc(2rem-1px)] aspect-[16/10] bg-slate-900 border border-white/5 shadow-2xl">
+										<Image
+											src={project.photo}
+											alt={project.name}
+											fill
+											className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 opacity-40 group-hover:opacity-60"
+										/>
+										<div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-95" />
+
+										{/* Cyber Tag */}
+										<div className="absolute top-6 left-6 flex items-center gap-2 scale-90 opacity-100 group-hover:opacity-0 group-hover:scale-75 transition-all duration-500 origin-top-left">
+											<div className="bg-primary cyber-clip px-6 py-2 shadow-[0_0_20px_rgba(79,57,246,0.6)]">
+												<p className="text-[10px] font-black tracking-[0.2em] text-white uppercase glow-text-primary italic">{project.name}</p>
+											</div>
+										</div>
+
+										{/* Immersive Reveal */}
+										<div className="absolute inset-0 flex flex-col justify-center p-6 scale-95 group-hover:scale-100 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out">
+											<div className="bg-black/60 backdrop-blur-2xl p-6 rounded-3xl border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.5)] flex flex-col gap-4">
+												<div className="flex justify-between items-start">
+													<h4 className="text-2xl font-bold text-white tracking-tight">{project.name}</h4>
+													<div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center animate-pulse border border-primary/30">
+														<div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(79,57,246,1)]" />
+													</div>
+												</div>
+												<p className="text-sm text-slate-200 leading-relaxed font-medium line-clamp-3">
+													{project.description}
+												</p>
+												<div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest mt-2 group/btn cursor-pointer">
+													<span>Explore Project</span>
+													<div className="w-8 h-px bg-primary/30 group-hover/btn:w-12 transition-all duration-300" />
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</a>
 						</div>
@@ -107,14 +137,16 @@ const Projects = () => {
 
 				<button
 					onClick={prev}
-					className="absolute left-5 md:left-10 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full text-white z-10"
+					className="absolute -left-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-10 opacity-0 group-hover/carousel:opacity-100 -translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 ring-1 ring-white/10"
+					aria-label="Previous project"
 				>
 					<ChevronLeftIcon className="h-6 w-6" />
 				</button>
 
 				<button
 					onClick={next}
-					className="absolute right-5 md:right-10 top-1/2 -translate-y-1/2 bg-black/50 p-2 rounded-full text-white z-10"
+					className="absolute -right-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-10 opacity-0 group-hover/carousel:opacity-100 translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 ring-1 ring-white/10"
+					aria-label="Next project"
 				>
 					<ChevronRightIcon className="h-6 w-6" />
 				</button>

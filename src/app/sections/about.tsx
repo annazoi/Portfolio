@@ -18,15 +18,15 @@ const About = () => {
 
 	return (
 		<div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20 about flex flex-col gap-20" id="about">
-			<div className="flex flex-col-reverse items-center gap-10 lg:flex-row lg:gap-20">
-				<div className="text flex flex-col gap-8">
-					<h3>I am Anna Zoi</h3>
-					<h2>Full-Stack Developer.</h2>
-					<p>I turn complex ideas into intuitive, high-performing digital products.</p>
+			<div className="flex flex-col-reverse items-center gap-12 lg:flex-row lg:gap-20">
+				<div className="text flex flex-col gap-6 lg:text-left text-center">
+					<h3 className="text-primary font-semibold tracking-wide uppercase text-sm">I am Anna Zoi</h3>
+					<h2 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-white">Full-Stack <br className="hidden lg:block" /><span className="text-gradient">Developer.</span></h2>
+					<p className="text-lg text-slate-400 max-w-xl mx-auto lg:mx-0">I turn complex ideas into intuitive, high-performing digital products with a focus on user experience and performance.</p>
 					<div>
-						<div className="max-w-fit m-auto lg:ml-0 mt-6 link ">
-							<button>Download CV</button>
-							<ArrowDownTrayIcon className="size-4 m-auto" />
+						<div className="max-w-fit mx-auto lg:ml-0 mt-8 link group">
+							<button className="font-semibold px-2">Download CV</button>
+							<ArrowDownTrayIcon className="size-5 transition-transform group-hover:translate-y-1" />
 						</div>
 						{/* social */}
 						<div></div>
@@ -34,7 +34,7 @@ const About = () => {
 				</div>
 				<div className="photo m-auto md:ml-auto">
 					<Tilt glareEnable={false} glareMaxOpacity={0} scale={1} tiltMaxAngleX={8} tiltMaxAngleY={8}>
-						<Image src={photo} alt="Anna Zoi" />
+						<Image src={photo} alt="Anna Zoi" width={300} height={300} className="rounded-3xl" />
 					</Tilt>
 				</div>
 			</div>

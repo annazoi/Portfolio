@@ -42,26 +42,36 @@ const Education = () => {
 	return (
 		<div
 			id="education"
-			className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20 education flex flex-col gap-5 lg:gap-10"
+			className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-32 education flex flex-col gap-12"
 		>
-			<h3 className="header">Education</h3>
+			<div className="flex flex-col items-center gap-4">
+				<h3 className="header">Education</h3>
+				<p className="text-slate-400 text-center max-w-2xl">Academic background and continuous learning in the field of engineering and technology.</p>
+			</div>
 			<div
 				ref={backgroundRef}
 				onMouseMove={handleMouseMove}
 				onMouseLeave={handleMouseLeave}
-				className="flex justify-between gap-20 bg-[#17182F] rounded-[25px] px-8 py-12 background"
+				className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20 glass rounded-[3rem] px-8 py-16 background relative overflow-hidden group/edu"
 			>
-				<div className="m-auto">
-					<a href="https://hmu.gr" target="_blank">
-						<Image src={university_logo} alt="ELMEPA" />
+				<div className="relative z-10 lg:w-1/3 flex justify-center">
+					<a href="https://hmu.gr" target="_blank" className="hover:scale-105 transition-transform duration-300">
+						<Image src={university_logo} alt="ELMEPA" className="w-48 h-auto shadow-2xl rounded-2xl" />
 					</a>
 				</div>
 
-				<div className="m-auto flex flex-col gap-7">
-					<p className="text-3xl">Master’s Degree</p>
-					<p className="text-2xl">in Electrical & Computer Engineering</p>
-					<p>Hellenic Mediterranean University</p>
+				<div className="relative z-10 lg:w-2/3 flex flex-col gap-6 lg:text-left text-center">
+					<div className="flex flex-col gap-2">
+						<p className="text-primary font-bold tracking-wider uppercase text-xs">Degree</p>
+						<p className="text-3xl lg:text-4xl font-extrabold text-white">Master’s Degree</p>
+					</div>
+					<div className="flex flex-col gap-1">
+						<p className="text-xl lg:text-2xl text-slate-300">in Electrical & Computer Engineering</p>
+						<p className="text-slate-400 font-medium">Hellenic Mediterranean University</p>
+					</div>
 				</div>
+
+				<div className="absolute inset-0 bg-primary/5 opacity-0 group-hover/edu:opacity-100 transition-opacity" />
 			</div>
 		</div>
 	);

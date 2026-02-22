@@ -259,17 +259,22 @@ const Skills = () => {
 	};
 
 	return (
-		<div id="skills" className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20 flex flex-col lg:gap-10 gap-5">
-			<h3 className="header">My Skills</h3>
-			<div className="grid grid-cols-2  gap-4 xl:grid-cols-6 xl:gap-10 md:grid-cols-4 sm:grid-cols-3 pl-2 ">
+		<div id="skills" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-32 flex flex-col gap-12">
+			<div className="flex flex-col items-center gap-4">
+				<h3 className="header">Technical Arsenal</h3>
+				<p className="text-slate-400 text-center max-w-2xl">A comprehensive toolkit of modern technologies I use to build robust and scalable applications.</p>
+			</div>
+			<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
 				{skills.map((skill: Skill) => (
 					<div key={skill.id}>
 						<div
-							className="skill flex flex-col xl:gap-6 gap-2 cursor-pointer"
+							className="skill flex flex-col gap-4 cursor-pointer"
 							onClick={() => handleSkillClick(skill)}
 						>
-							<Image src={skill.icon} alt={skill.name} width={60} height={60} className="m-auto"></Image>
-							<h2 className="text-center">{skill.name}</h2>
+							<div className="relative size-14 mx-auto">
+								<Image src={skill.icon} alt={skill.name} fill className="object-contain" />
+							</div>
+							<h2 className="text-center font-medium text-slate-300 transition-colors group-hover:text-white">{skill.name}</h2>
 						</div>
 
 						{isOpened && selectedSkill?.id === skill.id && (
