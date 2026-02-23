@@ -9,6 +9,7 @@ export interface Project {
 	id: string;
 	name: string;
 	photo: any;
+	photos?: any[];
 	description: string;
 	url: string;
 }

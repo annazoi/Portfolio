@@ -29,12 +29,21 @@ import trello from '@/assets/skills/trello.png';
 import websockets from '@/assets/skills/websockets.png';
 import webrtc from '@/assets/skills/webrtc.png';
 import tailwindcss from '@/assets/skills/tailwindcss.png';
+import problemSolving from '@/assets/skills/problem_solving.png';
+import collaboration from '@/assets/skills/collaboration.png';
+import communication from '@/assets/skills/communication.png';
+import growthMindset from '@/assets/skills/growthMindset.png';
+import adaptability from '@/assets/skills/adaptability.png';
+import clockIcon from '@/assets/skills/clockIcon.png';
 
 import { Skill } from '@/interfaces';
 
 import Image from 'next/image';
 import { useState } from 'react';
 import Modal from '@/components/ui/modal';
+import { AnimatePresence } from 'framer-motion';
+
+
 
 const Skills = () => {
 	const [isOpened, setIsOpened] = useState(false);
@@ -251,44 +260,105 @@ const Skills = () => {
 			description:
 				'A visual collaboration tool that uses boards, lists, and cards to help teams organize projects and prioritize tasks efficiently.',
 		},
+		{
+			id: 's1',
+			name: 'Problem Solving',
+			icon: problemSolving,
+			description:
+				'Expertise in identifying complex issues and implementing efficient, creative solutions through analytical thinking.',
+		},
+		{
+			id: 's2',
+			name: 'Collaboration',
+			icon: collaboration,
+			description:
+				'Proven ability to work effectively in diverse teams, fostering a positive and productive environment.',
+		},
+		{
+			id: 's3',
+			name: 'Communication',
+			icon: communication,
+			description:
+				'Strong verbal and written communication skills, capable of explaining technical concepts to non-technical stakeholders.',
+		},
+		{
+			id: 's4',
+			name: 'Growth Mindset',
+			icon: growthMindset,
+			description:
+				'A mindset focused on continuous learning, improvement, and embracing challenges as opportunities for development.',
+		},
+		{
+			id: 's5',
+			name: 'Adaptability',
+			icon: adaptability,
+			description:
+				'Quickly mastering new tools and technologies while staying productive in rapidly evolving project environments.',
+		},
+		{
+			id: 's6',
+			name: 'Time Management',
+			icon: clockIcon,
+			description:
+				'Optimizing productivity by managing multiple priorities and consistently meeting project deadlines with high quality.',
+		},
 	];
 
-	const handleSkillClick = (skill: any) => {
+	const handleSkillClick = (skill: Skill) => {
 		setSelectedSkill(skill);
 		setIsOpened(true);
+	};
+
+	const renderIcon = (skill: Skill) => {
+		if (typeof skill.icon === 'function') {
+			const IconComponent = skill.icon;
+			return (
+				<div className="flex items-center justify-center size-14 mx-auto rounded-xl bg-slate-800/50 border border-white/5 text-blue-400 group-hover:text-blue-300 transition-colors">
+					<IconComponent className="size-8" />
+				</div>
+			);
+		}
+		return (
+			<div className="relative size-14 mx-auto">
+				<Image src={skill.icon} alt={skill.name} fill className="object-contain" />
+			</div>
+		);
 	};
 
 	return (
 		<div id="skills" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-32 flex flex-col gap-12">
 			<div className="flex flex-col items-center gap-4">
 				<h3 className="header">Technical Arsenal</h3>
-				<p className="text-slate-400 text-center max-w-2xl">A comprehensive toolkit of modern technologies I use to build robust and scalable applications.</p>
+				<p className="text-slate-400 text-center max-w-2xl">
+					A comprehensive toolkit of modern technologies and professional soft skills I use to build robust, scalable applications.
+				</p>
 			</div>
 			<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
 				{skills.map((skill: Skill) => (
-					<div key={skill.id}>
-						<div
-							className="skill flex flex-col gap-4 cursor-pointer"
-							onClick={() => handleSkillClick(skill)}
-						>
-							<div className="relative size-14 mx-auto">
-								<Image src={skill.icon} alt={skill.name} fill className="object-contain" />
-							</div>
-							<h2 className="text-center font-medium text-slate-300 transition-colors group-hover:text-white">{skill.name}</h2>
-						</div>
-
-						{isOpened && selectedSkill?.id === skill.id && (
-							<Modal
-								onOpen={isOpened}
-								onClose={() => setIsOpened(false)}
-								name={skill.name}
-								description={skill.description}
-								icon={skill.icon}
-							></Modal>
-						)}
+					<div
+						key={skill.id}
+						className="skill flex flex-col gap-4 cursor-pointer group"
+						onClick={() => handleSkillClick(skill)}
+					>
+						{renderIcon(skill)}
+						<h2 className="text-center font-medium text-slate-300 transition-colors group-hover:text-white">
+							{skill.name}
+						</h2>
 					</div>
 				))}
 			</div>
+
+			<AnimatePresence>
+				{isOpened && selectedSkill && (
+					<Modal
+						onOpen={isOpened}
+						onClose={() => setIsOpened(false)}
+						name={selectedSkill.name}
+						description={selectedSkill.description}
+						icon={selectedSkill.icon}
+					/>
+				)}
+			</AnimatePresence>
 		</div>
 	);
 };

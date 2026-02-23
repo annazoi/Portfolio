@@ -5,43 +5,51 @@ import Image, { StaticImageData } from 'next/image';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import zivo from '@/assets/projects/zivo.png';
+import aura from '@/assets/projects/aura/chat.png';
+import habitry from '@/assets/projects/habitry/landing.png';
 import { Project } from '../../interfaces';
+import ProjectModal from '@/components/ui/project-modal';
 
 const Projects = () => {
 	const projects: Project[] = [
 		{
 			id: '1',
-			name: 'Zivo',
-			photo: zivo,
+			name: 'Aura',
+			photo: aura,
+			photos: [aura, habitry, aura], // Fallback gallery
 			description: 'Focused on real-time collaboration, secure messaging, and smart AI assistants.',
 			url: 'https://chat-ionic.vercel.app/',
 		},
 		{
 			id: '2',
-			name: 'Project 2',
-			photo: zivo,
-			description: 'Second project description.',
-			url: 'https://chat-ionic.vercel.app/',
+			name: 'Habitry',
+			photo: habitry,
+			photos: [habitry, aura, habitry], // Fallback gallery
+			description: 'A modern, AI-powered habit tracking application designed to help users build positive habits and achieve their goals through intelligent insights and personalized guidance.',
+			url: 'https://habitryy.vercel.app/',
 		},
 		{
 			id: '3',
 			name: 'Project 3',
-			photo: zivo,
+			photo: aura,
+			photos: [aura, habitry],
 			description: 'Third project description.',
 			url: 'https://chat-ionic.vercel.app/',
 		},
 		{
 			id: '4',
 			name: 'Project 4',
-			photo: zivo,
+			photo: aura,
+			photos: [aura, habitry],
 			description: 'Fourth project description.',
 			url: 'https://chat-ionic.vercel.app/',
 		},
 	];
 
-	const [visible, setVisible] = useState(3);
-	const [index, setIndex] = useState(3);
+	const [visible, setVisible] = useState(2);
+	const [index, setIndex] = useState(2);
+	const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -50,7 +58,7 @@ const Projects = () => {
 			} else if (window.innerWidth < 1024) {
 				setVisible(2);
 			} else {
-				setVisible(3);
+				setVisible(2);
 			}
 		};
 
@@ -63,6 +71,11 @@ const Projects = () => {
 
 	const next = () => setIndex((prev) => prev + 1);
 	const prev = () => setIndex((prev) => prev - 1);
+
+	const handleProjectClick = (project: Project) => {
+		setSelectedProject(project);
+		setIsModalOpen(true);
+	};
 
 	return (
 		<div className="mx-auto mt-32 px-4 relative overflow-hidden max-w-7xl" id="projects">
@@ -89,17 +102,17 @@ const Projects = () => {
 				>
 					{extendedProjects.map((project, i) => (
 						<div key={i} className="flex-shrink-0 px-4 relative project group" style={{ width: `${100 / visible}%` }}>
-							<a href={project.url} target="_blank" className="block relative h-full">
+							<div onClick={() => handleProjectClick(project)} className="block relative h-full cursor-pointer">
 								{/* Animated Border Wrapper */}
 								<div className="relative p-[1px] rounded-[2rem] overflow-hidden bg-white/10 group-hover:bg-transparent transition-colors duration-500">
 									<div className="absolute inset-0 opacity-0 group-hover:opacity-100 animate-border-flow transition-opacity duration-500" />
 
-									<div className="relative overflow-hidden rounded-[calc(2rem-1px)] aspect-[16/10] bg-slate-900 border border-white/5 shadow-2xl">
+									<div className="relative overflow-hidden rounded-[calc(2rem-1px)] aspect-[16/10] bg-slate-900 border border-white/5 shadow-2xl flex items-center justify-center">
 										<Image
 											src={project.photo}
 											alt={project.name}
-											fill
-											className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 opacity-40 group-hover:opacity-60"
+											// fill
+											className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 opacity-40 group-hover:opacity-60 rounded-2xl"
 										/>
 										<div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-95" />
 
@@ -123,14 +136,14 @@ const Projects = () => {
 													{project.description}
 												</p>
 												<div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest mt-2 group/btn cursor-pointer">
-													<span>Explore Project</span>
+													<span>View Details</span>
 													<div className="w-8 h-px bg-primary/30 group-hover/btn:w-12 transition-all duration-300" />
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</a>
+							</div>
 						</div>
 					))}
 				</motion.div>
@@ -151,6 +164,14 @@ const Projects = () => {
 					<ChevronRightIcon className="h-6 w-6" />
 				</button>
 			</div>
+
+			{selectedProject && (
+				<ProjectModal
+					project={selectedProject}
+					onOpen={isModalOpen}
+					onClose={() => setIsModalOpen(false)}
+				/>
+			)}
 		</div>
 	);
 };
