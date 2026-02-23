@@ -5,10 +5,17 @@ import Image, { StaticImageData } from 'next/image';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+
 import aura from '@/assets/projects/aura/chat.png';
-import habitry from '@/assets/projects/habitry/landing.png';
+import habitryLanding from '@/assets/projects/habitry/landing.png';
+import habitryDashboard from '@/assets/projects/habitry/dashboard.png';
+import habitryAddActivity from '@/assets/projects/habitry/addActivity.png'
+import habitryCalendar from '@/assets/projects/habitry/calendar.png'
+import habitryLogin from '@/assets/projects/habitry/login.png';
+
 import { Project } from '../../interfaces';
 import ProjectModal from '@/components/ui/project-modal';
+
 
 const Projects = () => {
 	const projects: Project[] = [
@@ -16,15 +23,15 @@ const Projects = () => {
 			id: '1',
 			name: 'Aura',
 			photo: aura,
-			photos: [aura, habitry, aura], // Fallback gallery
+			photos: [habitryLanding, aura],
 			description: 'Focused on real-time collaboration, secure messaging, and smart AI assistants.',
 			url: 'https://chat-ionic.vercel.app/',
 		},
 		{
 			id: '2',
 			name: 'Habitry',
-			photo: habitry,
-			photos: [habitry, aura, habitry], // Fallback gallery
+			photo: habitryLanding,
+			photos: [habitryLanding, habitryLogin, habitryDashboard, habitryAddActivity, habitryCalendar],
 			description: 'A modern, AI-powered habit tracking application designed to help users build positive habits and achieve their goals through intelligent insights and personalized guidance.',
 			url: 'https://habitryy.vercel.app/',
 		},
@@ -32,7 +39,7 @@ const Projects = () => {
 			id: '3',
 			name: 'Project 3',
 			photo: aura,
-			photos: [aura, habitry],
+			photos: [aura, habitryLanding],
 			description: 'Third project description.',
 			url: 'https://chat-ionic.vercel.app/',
 		},
@@ -40,7 +47,7 @@ const Projects = () => {
 			id: '4',
 			name: 'Project 4',
 			photo: aura,
-			photos: [aura, habitry],
+			photos: [aura, habitryLanding],
 			description: 'Fourth project description.',
 			url: 'https://chat-ionic.vercel.app/',
 		},

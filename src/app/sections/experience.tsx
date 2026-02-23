@@ -2,17 +2,18 @@
 
 import { Site } from '@/interfaces';
 import Image from 'next/image';
-import zivo from '@/assets/projects/zivo.png';
+import aura from '@/assets/projects/aura/chat.png';
+import habitry from '@/assets/projects/habitry/landing.png';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 const Experience = () => {
 	const sites: Site[] = [
-		{ id: '1', name: 'Avelia Villa', photo: zivo, description: 'A vacation villa website...' },
-		{ id: '2', name: 'Sunterra', photo: zivo, description: 'A vacation villa website...' },
-		{ id: '3', name: 'Cretantour', photo: zivo, description: 'A vacation villa website...' },
-		{ id: '4', name: 'Another Project', photo: zivo, description: 'A vacation villa website...' },
+		{ id: '1', name: 'Avelia Villa', photo: aura, description: 'A vacation villa website...' },
+		{ id: '2', name: 'Sunterra', photo: habitry, description: 'A vacation villa website...' },
+		{ id: '3', name: 'Cretantour', photo: aura, description: 'A vacation villa website...' },
+		{ id: '4', name: 'Another Project', photo: habitry, description: 'A vacation villa website...' },
 	];
 
 	// 1. Δυναμικό itemsPerSlide (2 για desktop, 1 για mobile)
