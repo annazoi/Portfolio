@@ -18,7 +18,7 @@ const About = () => {
 
 	return (
 		<div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20 about flex flex-col gap-20" id="about">
-			<div className="flex flex-col-reverse items-center gap-12 lg:flex-row lg:gap-20">
+			<div className="flex flex-col-reverse items-center lg:flex-row m-auto gap-10 lg:gap-40">
 				<div className="text flex flex-col gap-6 lg:text-left text-center">
 					<h3 className="text-primary font-semibold tracking-wide uppercase text-sm">I am Anna Zoi</h3>
 					<h2 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-white">Full-Stack <br className="hidden lg:block" /><span className="text-gradient">Developer.</span></h2>
@@ -26,7 +26,7 @@ const About = () => {
 					<div>
 						<div className="max-w-fit mx-auto lg:ml-0 mt-8 link group">
 							<button className="font-semibold px-2">Download CV</button>
-							<ArrowDownTrayIcon className="size-5 transition-transform group-hover:translate-y-1" />
+							<ArrowDownTrayIcon className="size-5" />
 						</div>
 						{/* social */}
 						<div></div>
