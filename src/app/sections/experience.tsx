@@ -57,7 +57,7 @@ const Experience = () => {
 	return (
 		<div id="experience" className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-32 flex flex-col gap-16">
 			<div className="flex flex-col items-center gap-4">
-				<h3 className="header">Experience</h3>
+				<h3 className="header text-gradient">Experience</h3>
 				<p className="text-slate-400 text-center max-w-2xl">A timeline of my professional journey.</p>
 			</div>
 

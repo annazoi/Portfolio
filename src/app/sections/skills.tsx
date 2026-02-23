@@ -328,7 +328,7 @@ const Skills = () => {
 	return (
 		<div id="skills" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-32 flex flex-col gap-12">
 			<div className="flex flex-col items-center gap-4">
-				<h3 className="header">Technical Arsenal</h3>
+				<h3 className="header text-gradient">Technical Arsenal</h3>
 				<p className="text-slate-400 text-center max-w-2xl">
 					A comprehensive toolkit of modern technologies and professional soft skills I use to build robust, scalable applications.
 				</p>

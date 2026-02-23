@@ -87,7 +87,7 @@ const Projects = () => {
 	return (
 		<div className="mx-auto mt-32 px-4 relative overflow-hidden max-w-7xl" id="projects">
 			<div className="flex flex-col items-center gap-4 mb-16">
-				<h3 className="header">Featured Projects</h3>
+				<h3 className="header text-gradient">Featured Projects</h3>
 				<p className="text-slate-400 text-center max-w-2xl">A selection of my recent work, ranging from real-time collaboration tools to complex full-stack applications.</p>
 			</div>
 

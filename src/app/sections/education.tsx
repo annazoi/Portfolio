@@ -45,7 +45,7 @@ const Education = () => {
 			className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-32 education flex flex-col gap-12"
 		>
 			<div className="flex flex-col items-center gap-4">
-				<h3 className="header">Education</h3>
+				<h3 className="header text-gradient">Education</h3>
 				<p className="text-slate-400 text-center max-w-2xl">Academic background and continuous learning in the field of engineering and technology.</p>
 			</div>
 			<div
