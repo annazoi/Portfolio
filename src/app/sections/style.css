@@ -173,27 +173,6 @@
 	background-color: #373a58;
 }
 
-.experience:nth-child(even) .photo {
-	margin-left: 0;
-	margin-right: -4rem;
-	border-left: 0;
-	border-right: 2rem solid #17182f;
-}
-
-.experience:nth-child(even) .photo:hover {
-	border-right: 2rem solid #373a58;
-}
-
-.experience:nth-child(even) img {
-	border-radius: unset;
-	border-bottom-left-radius: 0.75rem;
-	border-top-right-radius: 0.75rem;
-}
-
-.experience:nth-child(even) h3 {
-	text-align: right;
-}
-
 .project img {
 	filter: brightness(90%);
 	transition: all 0.3s ease-in-out;

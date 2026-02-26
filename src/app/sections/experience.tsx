@@ -7,13 +7,21 @@ import habitry from '@/assets/projects/habitry/landing.png';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import aveliavilla from '@/assets/sites/aveliavilla.jpg'
+import sunterra from '@/assets/sites/sunterra.jpg'
+import melba from '@/assets/sites/melba.jpg'
+import cretantour from '@/assets/sites/cretantour.jpg'
+import diorebeauty from '@/assets/sites/diorebeauty.jpg'
+import xylouris from '@/assets/sites/xylouris.jpg'
 
 const Experience = () => {
 	const sites: Site[] = [
-		{ id: '1', name: 'Avelia Villa', photo: aura, description: 'A vacation villa website...' },
-		{ id: '2', name: 'Sunterra', photo: habitry, description: 'A vacation villa website...' },
-		{ id: '3', name: 'Cretantour', photo: aura, description: 'A vacation villa website...' },
-		{ id: '4', name: 'Another Project', photo: habitry, description: 'A vacation villa website...' },
+		{ id: '1', name: 'Avelia Villa', photo: aveliavilla, description: 'A vacation villa website...' },
+		{id:'4', name:'Melba', photo: melba, description:'asd' },
+		{ id: '2', name: 'Sunterra', photo: sunterra, description: 'A vacation villa website...' },
+		{ id: '3', name: 'Xylouris', photo: xylouris, description: 'A vacation villa website...' },
+		{ id: '3', name: 'Cretantour', photo: cretantour, description: 'A vacation villa website...' },
+		{ id: '3', name: 'Diore Beauty', photo: diorebeauty, description: 'A vacation villa website...' },
 	];
 
 	// 1. Δυναμικό itemsPerSlide (2 για desktop, 1 για mobile)
@@ -54,6 +62,8 @@ const Experience = () => {
 		setTimeout(() => setIsAnimating(true), 50);
 	};
 
+
+
 	return (
 		<div id="experience" className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-32 flex flex-col gap-16">
 			<div className="flex flex-col items-center gap-4">
@@ -83,7 +93,7 @@ const Experience = () => {
 											<div
 												key={`${site.id}-${i}-${idx}`}
 												className={`flex flex-col lg:flex-row items-center gap-8 lg:gap-16 
-                                                ${originalIndex % 2 !== 0 ? 'lg:flex-row-reverse' : ''} group`}
+                                                 ${(i * itemsPerSlide + idx) % 2 !== 0 ? 'lg:flex-row-reverse' : ''} group`}
 											>
 												<div className="flex-1 flex flex-col gap-6 w-full">
 													<div className="flex flex-col gap-2">
