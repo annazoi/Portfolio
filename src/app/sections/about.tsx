@@ -1,7 +1,9 @@
 'use client';
 
 import './style.css';
-import photo from '@/assets/photo.png';
+import photo from '@/assets/about/photo.png';
+import github from '@/assets/about/github.png';
+import linkedin from '@/assets/about/linkedin.png';
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
@@ -29,13 +31,30 @@ const About = () => {
 						I turn complex ideas into intuitive, high-performing digital products with a focus on user experience
 						and performance.
 					</p>
-					<div>
-						<div className="max-w-fit mx-auto lg:ml-0 mt-8 link group">
-							<button className="font-semibold px-2">Download CV</button>
+					<div className="flex items-center gap-4">
+						<a className="max-w-fit mx-auto lg:ml-0 mt-8 link group cursor-pointer" href="">
+							<span>Download CV</span>
 							<ArrowDownTrayIcon className="size-5" />
-						</div>
+						</a>
 						{/* social */}
-						<div></div>
+						<div className="flex items-center gap-4">
+							<a
+								href="https://github.com/annazoi"
+								target="_blank"
+								className="link group cursor-pointer font-semibold px-2"
+							>
+								<span>GitHub</span>
+								<Image src={github} alt="GitHub" width={20} height={20} />
+							</a>
+							<a
+								href="https://www.linkedin.com/in/anna-zoi/"
+								target="_blank"
+								className="link group cursor-pointer font-semibold px-2"
+							>
+								<span>LinkedIn</span>
+								<Image src={linkedin} alt="Linkedin" width={20} height={20} />
+							</a>
+						</div>
 					</div>
 				</div>
 				<div className="photo m-auto md:ml-auto">

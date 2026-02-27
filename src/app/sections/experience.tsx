@@ -121,7 +121,7 @@ const Experience = () => {
 										return (
 											<a href={site.url} target="_blank" key={`${site.id}-${i}-${idx}`}>
 												<div
-													className={`hover:bg-primary/10 transition-all duration-300 p-8 rounded-3xl flex flex-col lg:flex-row items-center gap-8 lg:gap-16 
+													className={`hover:bg-primary/5 transition-all duration-300 p-8 rounded-3xl flex flex-col lg:flex-row items-center gap-8 lg:gap-16 
                                                  ${(i * itemsPerSlide + idx) % 2 !== 0 ? 'lg:flex-row-reverse' : ''} group cursor-pointer`}
 												>
 													<div className="flex-1 flex flex-col gap-6 w-full">
@@ -162,13 +162,13 @@ const Experience = () => {
 					onClick={prev}
 					className="absolute -left-4 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-20 opacity-0 group-hover/carousel:opacity-100 transition-all"
 				>
-					<ChevronLeftIcon className="h-6 w-6" />
+					<ChevronLeftIcon className="h-6 w-6 cursor-pointer" />
 				</button>
 				<button
 					onClick={next}
 					className="absolute -right-4 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-20 opacity-0 group-hover/carousel:opacity-100 transition-all"
 				>
-					<ChevronRightIcon className="h-6 w-6" />
+					<ChevronRightIcon className="h-6 w-6 cursor-pointer" />
 				</button>
 			</div>
 		</div>
