@@ -18,5 +18,6 @@ export interface Site {
 	id: string;
 	name: string;
 	photo: any;
+	url: string;
 	description: string;
 }

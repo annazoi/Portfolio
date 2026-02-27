@@ -43,8 +43,6 @@ import { useState } from 'react';
 import Modal from '@/components/ui/modal';
 import { AnimatePresence } from 'framer-motion';
 
-
-
 const Skills = () => {
 	const [isOpened, setIsOpened] = useState(false);
 	const [selectedSkill, setSelectedSkill] = useState<Skill>();
@@ -330,7 +328,8 @@ const Skills = () => {
 			<div className="flex flex-col items-center gap-4">
 				<h3 className="header text-gradient">Technical Arsenal</h3>
 				<p className="text-slate-400 text-center max-w-2xl">
-					A comprehensive toolkit of modern technologies and professional soft skills I use to build robust, scalable applications.
+					A comprehensive toolkit of modern technologies and professional soft skills I use to build robust,
+					scalable applications.
 				</p>
 			</div>
 			<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">

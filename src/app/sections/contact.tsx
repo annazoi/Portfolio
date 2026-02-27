@@ -42,7 +42,10 @@ const Contact = () => {
 	};
 
 	return (
-		<div id="contact" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-32 flex flex-col lg:flex-col gap-6 lg:gap-16 mb-20">
+		<div
+			id="contact"
+			className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-32 flex flex-col lg:flex-col gap-6 lg:gap-16 mb-20"
+		>
 			<h3 className="header text-left text-gradient">Get In Touch</h3>
 			<div className="flex flex-col lg:flex-row gap-16 lg:gap-32">
 				<div className="flex-1 flex flex-col gap-8 text-center lg:text-left">
@@ -55,7 +58,10 @@ const Contact = () => {
 						Whether you have a question or just want to say hi, I'll try my best to get back to you!
 					</p>
 					<div className="flex flex-col gap-4 mt-4">
-						<a href="mailto:anna.zoi@yahoo.com" className="text-xl font-semibold text-white hover:text-primary transition-colors">
+						<a
+							href="mailto:anna.zoi@yahoo.com"
+							className="text-xl font-semibold text-white hover:text-primary transition-colors"
+						>
 							anna.zoi@yahoo.com
 						</a>
 					</div>
@@ -118,7 +124,10 @@ const Contact = () => {
 								<StatusMessage type="success" message="✅ Message sent! I'll get back to you soon." />
 							)}
 							{status === 'error' && (
-								<StatusMessage type="error" message="❌ Something went wrong. Please try again or email me directly." />
+								<StatusMessage
+									type="error"
+									message="❌ Something went wrong. Please try again or email me directly."
+								/>
 							)}
 
 							<button
@@ -133,7 +142,6 @@ const Contact = () => {
 					</form>
 				</motion.div>
 			</div>
-
 		</div>
 	);
 };

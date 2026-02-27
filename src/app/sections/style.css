@@ -5,7 +5,6 @@
 	letter-spacing: -0.02em;
 }
 
-
 .about .text h3 {
 	font-size: 1.5rem;
 	font-weight: 500;
@@ -165,7 +164,8 @@
 	background-color: #5f6396;
 }
 
-.experience img {}
+.experience img {
+}
 
 .experience .photo:hover {
 	border-top: 1.2rem solid #373a58;
@@ -192,7 +192,6 @@
 }
 
 @media screen and (max-width: 1024px) {
-
 	.about .text h2,
 	.about .text h3,
 	.about .text p {

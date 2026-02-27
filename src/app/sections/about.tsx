@@ -21,8 +21,14 @@ const About = () => {
 			<div className="flex flex-col-reverse items-center lg:flex-row m-auto gap-10 lg:gap-40">
 				<div className="text flex flex-col gap-6 lg:text-left text-center">
 					<h3 className="text-primary font-semibold tracking-wide uppercase text-sm">I am Anna Zoi</h3>
-					<h2 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-white">Full-Stack <br className="hidden lg:block" /><span className="text-gradient">Developer.</span></h2>
-					<p className="text-lg text-slate-400 max-w-xl mx-auto lg:mx-0">I turn complex ideas into intuitive, high-performing digital products with a focus on user experience and performance.</p>
+					<h2 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-white">
+						Full-Stack <br className="hidden lg:block" />
+						<span className="text-gradient">Developer.</span>
+					</h2>
+					<p className="text-lg text-slate-400 max-w-xl mx-auto lg:mx-0">
+						I turn complex ideas into intuitive, high-performing digital products with a focus on user experience
+						and performance.
+					</p>
 					<div>
 						<div className="max-w-fit mx-auto lg:ml-0 mt-8 link group">
 							<button className="font-semibold px-2">Download CV</button>

@@ -9,13 +9,12 @@ import { useEffect, useState } from 'react';
 import aura from '@/assets/projects/aura/chat.png';
 import habitryLanding from '@/assets/projects/habitry/landing.png';
 import habitryDashboard from '@/assets/projects/habitry/dashboard.png';
-import habitryAddActivity from '@/assets/projects/habitry/addActivity.png'
-import habitryCalendar from '@/assets/projects/habitry/calendar.png'
+import habitryAddActivity from '@/assets/projects/habitry/addActivity.png';
+import habitryCalendar from '@/assets/projects/habitry/calendar.png';
 import habitryLogin from '@/assets/projects/habitry/login.png';
 
 import { Project } from '../../interfaces';
 import ProjectModal from '@/components/ui/project-modal';
-
 
 const Projects = () => {
 	const projects: Project[] = [
@@ -32,7 +31,8 @@ const Projects = () => {
 			name: 'Habitry',
 			photo: habitryLanding,
 			photos: [habitryLanding, habitryLogin, habitryDashboard, habitryAddActivity, habitryCalendar],
-			description: 'A modern, AI-powered habit tracking application designed to help users build positive habits and achieve their goals through intelligent insights and personalized guidance.',
+			description:
+				'A modern, AI-powered habit tracking application designed to help users build positive habits and achieve their goals through intelligent insights and personalized guidance.',
 			url: 'https://habitryy.vercel.app/',
 		},
 		{
@@ -88,7 +88,10 @@ const Projects = () => {
 		<div className="mx-auto mt-32 px-4 relative overflow-hidden max-w-7xl" id="projects">
 			<div className="flex flex-col items-center gap-4 mb-16">
 				<h3 className="header text-gradient">Featured Projects</h3>
-				<p className="text-slate-400 text-center max-w-2xl">A selection of my recent work, ranging from real-time collaboration tools to complex full-stack applications.</p>
+				<p className="text-slate-400 text-center max-w-2xl">
+					A selection of my recent work, ranging from real-time collaboration tools to complex full-stack
+					applications.
+				</p>
 			</div>
 
 			<div className="relative group/carousel">
@@ -108,7 +111,11 @@ const Projects = () => {
 					}}
 				>
 					{extendedProjects.map((project, i) => (
-						<div key={i} className="flex-shrink-0 px-4 relative project group" style={{ width: `${100 / visible}%` }}>
+						<div
+							key={i}
+							className="flex-shrink-0 px-4 relative project group"
+							style={{ width: `${100 / visible}%` }}
+						>
 							<div onClick={() => handleProjectClick(project)} className="block relative h-full cursor-pointer">
 								{/* Animated Border Wrapper */}
 								<div className="relative p-[1px] rounded-[2rem] overflow-hidden bg-white/10 group-hover:bg-transparent transition-colors duration-500">
@@ -126,7 +133,9 @@ const Projects = () => {
 										{/* Cyber Tag */}
 										<div className="absolute top-6 left-6 flex items-center gap-2 scale-90 opacity-100 group-hover:opacity-0 group-hover:scale-75 transition-all duration-500 origin-top-left">
 											<div className="bg-primary cyber-clip px-6 py-2 shadow-[0_0_20px_rgba(79,57,246,0.6)]">
-												<p className="text-[10px] font-black tracking-[0.2em] text-white uppercase glow-text-primary italic">{project.name}</p>
+												<p className="text-[10px] font-black tracking-[0.2em] text-white uppercase glow-text-primary italic">
+													{project.name}
+												</p>
 											</div>
 										</div>
 
@@ -173,11 +182,7 @@ const Projects = () => {
 			</div>
 
 			{selectedProject && (
-				<ProjectModal
-					project={selectedProject}
-					onOpen={isModalOpen}
-					onClose={() => setIsModalOpen(false)}
-				/>
+				<ProjectModal project={selectedProject} onOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 			)}
 		</div>
 	);
