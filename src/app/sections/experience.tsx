@@ -160,15 +160,15 @@ const Experience = () => {
 
 				<button
 					onClick={prev}
-					className="absolute -left-4 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-20 opacity-0 group-hover/carousel:opacity-100 transition-all"
+					className="absolute -left-4 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-20 opacity-0 group-hover/carousel:opacity-100 transition-all cursor-pointer hover:bg-primary/20 hover:border-primary/40"
 				>
-					<ChevronLeftIcon className="h-6 w-6 cursor-pointer" />
+					<ChevronLeftIcon className="h-6 w-6" />
 				</button>
 				<button
 					onClick={next}
-					className="absolute -right-4 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-20 opacity-0 group-hover/carousel:opacity-100 transition-all"
+					className="absolute -right-4 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-20 opacity-0 group-hover/carousel:opacity-100 transition-all cursor-pointer hover:bg-primary/20 hover:border-primary/40"
 				>
-					<ChevronRightIcon className="h-6 w-6 cursor-pointer" />
+					<ChevronRightIcon className="h-6 w-6" />
 				</button>
 			</div>
 		</div>

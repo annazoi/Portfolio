@@ -166,18 +166,19 @@ const Projects = () => {
 
 				<button
 					onClick={prev}
-					className="absolute -left-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-10 opacity-0 group-hover/carousel:opacity-100 -translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 ring-1 ring-white/10"
+					className="absolute -left-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-10 opacity-0 group-hover/carousel:opacity-100 -translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 ring-1 ring-white/10 cursor-pointer
+cursor-pointer"
 					aria-label="Previous project"
 				>
-					<ChevronLeftIcon className="h-6 w-6" />
+					<ChevronLeftIcon className="h-6 w-6 " />
 				</button>
 
 				<button
 					onClick={next}
-					className="absolute -right-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-10 opacity-0 group-hover/carousel:opacity-100 translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 ring-1 ring-white/10"
+					className="absolute -right-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-10 opacity-0 group-hover/carousel:opacity-100 translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 ring-1 ring-white/10 cursor-pointer"
 					aria-label="Next project"
 				>
-					<ChevronRightIcon className="h-6 w-6" />
+					<ChevronRightIcon className="h-6 w-6 " />
 				</button>
 			</div>
 
