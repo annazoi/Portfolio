@@ -7,11 +7,21 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 import aura from '@/assets/projects/aura/chat.png';
-import habitryLanding from '@/assets/projects/habitry/landing.png';
-import habitryDashboard from '@/assets/projects/habitry/dashboard.png';
-import habitryAddActivity from '@/assets/projects/habitry/addActivity.png';
-import habitryCalendar from '@/assets/projects/habitry/calendar.png';
-import habitryLogin from '@/assets/projects/habitry/login.png';
+import habitryLanding from '@/assets/projects/habitry/landing.jpg';
+import habitryDashboard from '@/assets/projects/habitry/dashboard.jpg';
+import habitryAddActivity from '@/assets/projects/habitry/addActivity.jpg';
+import habitryCalendar from '@/assets/projects/habitry/calendar.jpg';
+import habitryLogin from '@/assets/projects/habitry/login.jpg';
+import drobeLogin from '@/assets/projects/drobe/login.jpg';
+import drobeHome from '@/assets/projects/drobe/home.jpg';
+import drobeStudio from '@/assets/projects/drobe/studio.jpg';
+import drobeOutfits from '@/assets/projects/drobe/outfits.jpg';
+import drobeAddPhoto from '@/assets/projects/drobe/add_photo.jpg';
+import drobeClothingCutout from '@/assets/projects/drobe/clothing_cutout.jpg';
+import drobeSaveClothingItem from '@/assets/projects/drobe/save_clothing_item.jpg';
+import drobeArchives from '@/assets/projects/drobe/archives.jpg';
+import drobeClothingOverview from '@/assets/projects/drobe/clothing_overview.jpg';
+import drobeCreatedClothingItem from '@/assets/projects/drobe/created_clothing_item.jpg';
 
 import { Project } from '../../interfaces';
 import ProjectModal from '@/components/ui/project-modal';
@@ -37,11 +47,22 @@ const Projects = () => {
 		},
 		{
 			id: '3',
-			name: 'Project 3',
-			photo: aura,
-			photos: [aura, habitryLanding],
+			name: 'Drobe',
+			photo: drobeHome,
+			photos: [
+				drobeHome,
+				drobeLogin,
+				drobeStudio,
+				drobeOutfits,
+				drobeAddPhoto,
+				drobeClothingCutout,
+				drobeCreatedClothingItem,
+				drobeSaveClothingItem,
+				drobeArchives,
+				drobeClothingOverview,
+			],
 			description: 'Third project description.',
-			url: 'https://chat-ionic.vercel.app/',
+			url: 'https://drobee.vercel.app/',
 		},
 		{
 			id: '4',
@@ -126,7 +147,7 @@ const Projects = () => {
 											src={project.photo}
 											alt={project.name}
 											// fill
-											className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 opacity-40 group-hover:opacity-60 rounded-2xl"
+											className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-40 group-hover:opacity-60 rounded-2xl scale-105"
 										/>
 										<div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-95" />
 
@@ -166,8 +187,7 @@ const Projects = () => {
 
 				<button
 					onClick={prev}
-					className="absolute -left-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-10 opacity-0 group-hover/carousel:opacity-100 -translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 ring-1 ring-white/10 cursor-pointer
-cursor-pointer"
+					className="absolute -left-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-10 opacity-0 group-hover/carousel:opacity-100 -translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 ring-1 ring-white/10 cursor-pointer"
 					aria-label="Previous project"
 				>
 					<ChevronLeftIcon className="h-6 w-6 " />

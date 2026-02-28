@@ -22,36 +22,48 @@ const Experience = () => {
 			name: 'Avelia Villa',
 			photo: aveliavilla,
 			url: 'https://aveliavilla.gr/',
-			description: 'A vacation villa website...',
+			description:
+				'A vacation villa website that presents photos of the villa and detailed information about its facilities. Visitors can explore activities available in the surrounding area and make a booking directly through the website.',
 		},
-		{ id: '4', name: 'Melba', photo: melba, url: 'https://melba.gr/', description: 'asd' },
+		{
+			id: '4',
+			name: 'Melba',
+			photo: melba,
+			url: 'https://melba.gr/',
+			description:
+				'A website for a sweets shop, offering visitors information about the menu, products, and store details. Users can explore available treats, learn more about the brand, and easily contact the store for inquiries.',
+		},
 		{
 			id: '2',
 			name: 'Sunterra',
 			photo: sunterra,
 			url: 'https://sunterra.gr/',
-			description: 'A vacation villa website...',
+			description:
+				'A vacation rental website that allows users to browse and book holiday homes. The platform showcases available properties with detailed descriptions and photos, making it simple for visitors to find and reserve accommodations.',
 		},
 		{
 			id: '3',
 			name: 'Xylouris',
 			photo: xylouris,
 			url: 'https://xylouris.gr/',
-			description: 'A vacation villa website...',
+			description:
+				'A traditional restaurant website where visitors can view photos of dishes, explore recipes, and make a table reservation through an easy-to-use interface.',
 		},
 		{
-			id: '3',
+			id: '5',
 			name: 'Cretantour',
 			photo: cretantour,
 			url: 'https://cretantour.com/',
-			description: 'A vacation villa website...',
+			description:
+				'A tour operator website that presents the excursions organized by the company in Crete. Visitors can browse available tours, create a custom tour based on their preferences, and explore the company’s content and material.',
 		},
 		{
-			id: '3',
+			id: '6',
 			name: 'Diore Beauty',
 			photo: diorebeauty,
 			url: 'https://diorebeauty.gr/',
-			description: 'A vacation villa website...',
+			description:
+				'A booking website for a beauty salon in Heraklion, allowing customers to schedule appointments for services such as manicure, pedicure, and other beauty treatments through an online reservation system.',
 		},
 	];
 
