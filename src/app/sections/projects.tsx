@@ -61,7 +61,8 @@ const Projects = () => {
 				drobeArchives,
 				drobeClothingOverview,
 			],
-			description: 'Third project description.',
+			description:
+				'A modern digital wardrobe app that lets users organize their clothes with smart background removal for clean, ready-to-use photos. Users can mix and match items on an easy-to-use canvas to plan outfits and share their style with others. Built with React and NestJS, Drobe combines AI-powered image processing with a fast, scalable, and cross-platform-ready design.',
 			url: 'https://drobee.vercel.app/',
 		},
 		{
