@@ -32,7 +32,7 @@ const Projects = () => {
 			id: '1',
 			name: 'Aura',
 			photo: aura,
-			photos: [habitryLanding, aura],
+			photos: [aura],
 			description: 'Focused on real-time collaboration, secure messaging, and smart AI assistants.',
 			url: 'https://chat-ionic.vercel.app/',
 		},
@@ -67,7 +67,7 @@ const Projects = () => {
 		},
 		{
 			id: '4',
-			name: 'Project 4',
+			name: 'Relay',
 			photo: aura,
 			photos: [aura, habitryLanding],
 			description: 'Fourth project description.',

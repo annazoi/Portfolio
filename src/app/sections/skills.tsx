@@ -28,6 +28,7 @@ import asana from '@/assets/skills/asana.png';
 import trello from '@/assets/skills/trello.png';
 import websockets from '@/assets/skills/websockets.png';
 import webrtc from '@/assets/skills/webrtc.png';
+import laravel from '@/assets/skills/laravel.png';
 import tailwindcss from '@/assets/skills/tailwindcss.png';
 import problemSolving from '@/assets/skills/problem_solving.png';
 import collaboration from '@/assets/skills/collaboration.png';
@@ -83,6 +84,14 @@ const Skills = () => {
 			description:
 				'A utility-first CSS framework for rapidly building custom user interfaces directly in the markup using predefined classes.',
 		},
+		{
+			id: '31',
+			name: 'Laravel',
+			icon: laravel,
+			description:
+				'A popular PHP web framework designed for building modern web applications with elegant syntax, built-in tools for routing, authentication, databases, and scalable backend development.',
+		},
+
 		{
 			id: '5',
 			name: 'HTML',
