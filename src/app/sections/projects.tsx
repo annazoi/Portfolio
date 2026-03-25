@@ -34,7 +34,7 @@ const Projects = () => {
 			photo: aura,
 			photos: [aura],
 			description: 'Focused on real-time collaboration, secure messaging, and smart AI assistants.',
-			url: 'https://chat-ionic.vercel.app/',
+			url: 'https://aura.annazoi.dev/',
 		},
 		{
 			id: '2',
@@ -43,7 +43,7 @@ const Projects = () => {
 			photos: [habitryLanding, habitryLogin, habitryDashboard, habitryAddActivity, habitryCalendar],
 			description:
 				'A modern, AI-powered habit tracking application designed to help users build positive habits and achieve their goals through intelligent insights and personalized guidance.',
-			url: 'https://habitryy.vercel.app/',
+			url: 'https://habitry.annazoi.dev/',
 		},
 		{
 			id: '3',
@@ -63,7 +63,7 @@ const Projects = () => {
 			],
 			description:
 				'A modern digital wardrobe app that lets users organize their clothes with smart background removal for clean, ready-to-use photos. Users can mix and match items on an easy-to-use canvas to plan outfits and share their style with others. Built with React and NestJS, Drobe combines AI-powered image processing with a fast, scalable, and cross-platform-ready design.',
-			url: 'https://drobee.vercel.app/',
+			url: 'https://drobe.annazoi.dev/',
 		},
 		{
 			id: '4',
@@ -71,7 +71,7 @@ const Projects = () => {
 			photo: aura,
 			photos: [aura, habitryLanding],
 			description: 'Fourth project description.',
-			url: 'https://chat-ionic.vercel.app/',
+			url: 'https://relay.annazoi.dev/',
 		},
 	];
 

@@ -13,6 +13,7 @@ import melba from '@/assets/sites/melba.jpg';
 import cretantour from '@/assets/sites/cretantour.jpg';
 import diorebeauty from '@/assets/sites/diorebeauty.jpg';
 import xylouris from '@/assets/sites/xylouris.jpg';
+import transfersheraklion from '@/assets/sites/transfersheraklion.jpg';
 import { a } from 'framer-motion/client';
 
 const Experience = () => {
@@ -62,6 +63,14 @@ const Experience = () => {
 			name: 'Diore Beauty',
 			photo: diorebeauty,
 			url: 'https://diorebeauty.gr/',
+			description:
+				'A booking website for a beauty salon in Heraklion, allowing customers to schedule appointments for services such as manicure, pedicure, and other beauty treatments through an online reservation system.',
+		},
+		{
+			id: '7',
+			name: 'Transfer Heraklion',
+			photo: transfersheraklion,
+			url: 'https://www.testdomain.gr/transfersheraklion.com/',
 			description:
 				'A booking website for a beauty salon in Heraklion, allowing customers to schedule appointments for services such as manicure, pedicure, and other beauty treatments through an online reservation system.',
 		},
