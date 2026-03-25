@@ -6,7 +6,15 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-import aura from '@/assets/projects/aura/chat.png';
+import auraLogin from '@/assets/projects/aura/login.jpg';
+import auraChats from '@/assets/projects/aura/chats.jpg';
+import auraChat from '@/assets/projects/aura/chat.jpg';
+import auraAi from '@/assets/projects/aura/ai.jpg';
+import auraAiProgressing from '@/assets/projects/aura/ai-1.jpg';
+import auraSummary from '@/assets/projects/aura/ai-2.jpg';
+import auraSentimentAnlysis from '@/assets/projects/aura/ai-3.jpg';
+import auraCall from '@/assets/projects/aura/call.jpg';
+import auraCreateChat from '@/assets/projects/aura/create-chat.jpg';
 import habitryLanding from '@/assets/projects/habitry/landing.jpg';
 import habitryDashboard from '@/assets/projects/habitry/dashboard.jpg';
 import habitryAddActivity from '@/assets/projects/habitry/addActivity.jpg';
@@ -31,8 +39,18 @@ const Projects = () => {
 		{
 			id: '1',
 			name: 'Aura',
-			photo: aura,
-			photos: [aura],
+			photo: auraChat,
+			photos: [
+				auraLogin,
+				auraChats,
+				auraChat,
+				auraAi,
+				auraAiProgressing,
+				auraSummary,
+				auraSentimentAnlysis,
+				auraCall,
+				auraCreateChat,
+			],
 			description: 'Focused on real-time collaboration, secure messaging, and smart AI assistants.',
 			url: 'https://aura.annazoi.dev/',
 		},
@@ -68,8 +86,8 @@ const Projects = () => {
 		{
 			id: '4',
 			name: 'Relay',
-			photo: aura,
-			photos: [aura, habitryLanding],
+			photo: '',
+			photos: [],
 			description: 'Fourth project description.',
 			url: 'https://relay.annazoi.dev/',
 		},
