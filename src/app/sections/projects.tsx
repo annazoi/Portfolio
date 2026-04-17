@@ -1,10 +1,16 @@
 'use client';
 
 import './style.css';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
-import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 import auraLogin from '@/assets/projects/aura/login.jpg';
 import auraChats from '@/assets/projects/aura/chats.jpg';
@@ -30,6 +36,7 @@ import drobeSaveClothingItem from '@/assets/projects/drobe/save_clothing_item.jp
 import drobeArchives from '@/assets/projects/drobe/archives.jpg';
 import drobeClothingOverview from '@/assets/projects/drobe/clothing_overview.jpg';
 import drobeCreatedClothingItem from '@/assets/projects/drobe/created_clothing_item.jpg';
+import relayLanding from '@/assets/projects/relay/landing.png';
 
 import { Project } from '../../interfaces';
 import ProjectModal from '@/components/ui/project-modal';
@@ -86,38 +93,16 @@ const Projects = () => {
 		{
 			id: '4',
 			name: 'Relay',
-			photo: '',
-			photos: [],
-			description: 'Fourth project description.',
+			photo: relayLanding,
+			photos: [relayLanding],
+			description:
+				'A high-performance communication and data transfer platform designed for seamless real-time connectivity. Relay provides robust infrastructure for secure, scalable, and instant messaging systems across global networks.',
 			url: 'https://relay.annazoi.dev/',
 		},
 	];
 
-	const [visible, setVisible] = useState(2);
-	const [index, setIndex] = useState(2);
 	const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 	const [isModalOpen, setIsModalOpen] = useState(false);
-
-	useEffect(() => {
-		const handleResize = () => {
-			if (window.innerWidth < 768) {
-				setVisible(1);
-			} else if (window.innerWidth < 1024) {
-				setVisible(2);
-			} else {
-				setVisible(2);
-			}
-		};
-
-		handleResize();
-		window.addEventListener('resize', handleResize);
-		return () => window.removeEventListener('resize', handleResize);
-	}, []);
-
-	const extendedProjects = [...projects.slice(-visible), ...projects, ...projects.slice(0, visible)];
-
-	const next = () => setIndex((prev) => prev + 1);
-	const prev = () => setIndex((prev) => prev - 1);
 
 	const handleProjectClick = (project: Project) => {
 		setSelectedProject(project);
@@ -125,49 +110,56 @@ const Projects = () => {
 	};
 
 	return (
-		<div className="mx-auto mt-32 px-4 relative overflow-hidden max-w-7xl" id="projects">
-			<div className="flex flex-col items-center gap-4 mb-16">
+		<div className="mx-auto md:mt-32 mt-0 px-4 relative overflow-hidden max-w-7xl" id="projects">
+			<div className="flex flex-col items-center gap-4 md:mb-16 mb-5">
 				<h3 className="header text-gradient">Featured Projects</h3>
-				<p className="text-slate-400 text-center max-w-2xl">
+				<p className="text-slate-400 text-center max-w-2xl text-sm md:text-lg">
 					A selection of my recent work, ranging from real-time collaboration tools to complex full-stack
 					applications.
 				</p>
 			</div>
 
-			<div className="relative group/carousel">
-				<motion.div
-					className="flex"
-					animate={{
-						x: `-${index * (100 / visible)}%`,
+			<div className="relative group/carousel projects-swiper">
+				<Swiper
+					modules={[Navigation, Pagination, Autoplay]}
+					spaceBetween={0}
+					slidesPerView={1}
+					navigation={{
+						prevEl: '.projects-prev',
+						nextEl: '.projects-next',
 					}}
-					transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-					onAnimationComplete={() => {
-						if (index >= projects.length + visible) {
-							setIndex(visible);
-						}
-						if (index < visible) {
-							setIndex(projects.length + visible - 1);
-						}
+					pagination={{ clickable: true }}
+					autoplay={{ delay: 6000, disableOnInteraction: false }}
+					loop={true}
+					breakpoints={{
+						768: {
+							slidesPerView: 1,
+						},
+						1024: {
+							slidesPerView: 2,
+						},
 					}}
+					className="pb-16"
 				>
-					{extendedProjects.map((project, i) => (
-						<div
-							key={i}
-							className="flex-shrink-0 px-4 relative project group"
-							style={{ width: `${100 / visible}%` }}
-						>
-							<div onClick={() => handleProjectClick(project)} className="block relative h-full cursor-pointer">
+					{projects.map((project) => (
+						<SwiperSlide key={project.id} className="px-4">
+							<div
+								onClick={() => handleProjectClick(project)}
+								className="block relative h-full cursor-pointer group"
+							>
 								{/* Animated Border Wrapper */}
 								<div className="relative p-[1px] rounded-[2rem] overflow-hidden bg-white/10 group-hover:bg-transparent transition-colors duration-500">
 									<div className="absolute inset-0 opacity-0 group-hover:opacity-100 animate-border-flow transition-opacity duration-500" />
 
 									<div className="relative overflow-hidden rounded-[calc(2rem-1px)] aspect-[16/10] bg-slate-900 border border-white/5 shadow-2xl flex items-center justify-center">
-										<Image
-											src={project.photo}
-											alt={project.name}
-											// fill
-											className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-40 group-hover:opacity-60 rounded-2xl scale-105"
-										/>
+										{project.photo && (
+											<Image
+												src={project.photo}
+												alt={project.name}
+												className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-40 group-hover:opacity-60 rounded-2xl scale-105"
+											/>
+										)}
+
 										<div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-95" />
 
 										{/* Cyber Tag */}
@@ -200,23 +192,15 @@ const Projects = () => {
 									</div>
 								</div>
 							</div>
-						</div>
+						</SwiperSlide>
 					))}
-				</motion.div>
+				</Swiper>
 
-				<button
-					onClick={prev}
-					className="absolute -left-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-10 opacity-0 group-hover/carousel:opacity-100 -translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 ring-1 ring-white/10 cursor-pointer"
-					aria-label="Previous project"
-				>
+				<button className="projects-prev absolute md:-left-2 left-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-10 md:opacity-0 group-hover/carousel:opacity-100 -translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 ring-1 ring-white/10 cursor-pointer">
 					<ChevronLeftIcon className="h-6 w-6 " />
 				</button>
 
-				<button
-					onClick={next}
-					className="absolute -right-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-10 opacity-0 group-hover/carousel:opacity-100 translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 ring-1 ring-white/10 cursor-pointer"
-					aria-label="Next project"
-				>
+				<button className="projects-next absolute md:-right-2 right-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-10 md:opacity-0 group-hover/carousel:opacity-100 translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 ring-1 ring-white/10 cursor-pointer">
 					<ChevronRightIcon className="h-6 w-6 " />
 				</button>
 			</div>

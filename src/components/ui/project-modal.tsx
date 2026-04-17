@@ -59,12 +59,14 @@ export default function ProjectModal({ project, onOpen, onClose }: ProjectModalP
 										transition={{ duration: 0.3 }}
 										className="relative w-full h-full"
 									>
-										<Image
-											src={photos[currentIndex]}
-											alt={`${project.name} photo ${currentIndex + 1}`}
-											fill
-											className="object-contain p-2"
-										/>
+										{photos[currentIndex] && (
+											<Image
+												src={photos[currentIndex]}
+												alt={`${project.name} photo ${currentIndex + 1}`}
+												fill
+												className="object-contain p-2"
+											/>
+										)}
 									</motion.div>
 								</AnimatePresence>
 

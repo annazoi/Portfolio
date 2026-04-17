@@ -19,20 +19,23 @@ const About = () => {
 	];
 
 	return (
-		<div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20 about flex flex-col gap-20" id="about">
-			<div className="flex flex-col-reverse items-center lg:flex-row m-auto gap-10 lg:gap-40">
+		<div
+			className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 md:mt-20 mt-0 about flex flex-col md:gap-20 gap-12"
+			id="about"
+		>
+			<div className="flex flex-col-reverse items-center lg:flex-row m-auto gap-5 lg:gap-40">
 				<div className="text flex flex-col gap-6 lg:text-left text-center">
-					<h3 className="text-primary font-semibold tracking-wide uppercase text-sm">I am Anna Zoi</h3>
-					<h2 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-white">
+					<h3 className="text-primary font-semibold tracking-wide md:text-sm text-lg">I am Anna Zoi</h3>
+					<h2 className="md:text-3xl text-2xl lg:text-7xl font-extrabold tracking-tight text-white">
 						Full-Stack <br className="hidden lg:block" />
 						<span className="text-gradient">Developer.</span>
 					</h2>
-					<p className="text-lg text-slate-400 max-w-xl mx-auto lg:mx-0">
+					<p className="md:text-lg text-sm text-slate-400 max-w-xl mx-auto lg:mx-0">
 						I turn complex ideas into intuitive, high-performing digital products with a focus on user experience
 						and performance.
 					</p>
-					<div className="flex items-center gap-4">
-						<a className="max-w-fit mx-auto lg:ml-0 mt-8 link group cursor-pointer" href="">
+					<div className="flex items-center gap-4 lg:flex-row flex-col">
+						<a className="max-w-fit mx-auto lg:ml-0 md:mt-8 mt-2 link group cursor-pointer" href="">
 							<span>Download CV</span>
 							<ArrowDownTrayIcon className="size-5" />
 						</a>
@@ -41,7 +44,7 @@ const About = () => {
 							<a
 								href="https://github.com/annazoi"
 								target="_blank"
-								className="link group cursor-pointer font-semibold px-2"
+								className="link group cursor-pointer font-semibold px-4"
 							>
 								<span>GitHub</span>
 								<Image src={github} alt="GitHub" width={20} height={20} />
@@ -49,7 +52,7 @@ const About = () => {
 							<a
 								href="https://www.linkedin.com/in/anna-zoi/"
 								target="_blank"
-								className="link group cursor-pointer font-semibold px-2"
+								className="link group cursor-pointer font-semibold px-4"
 							>
 								<span>LinkedIn</span>
 								<Image src={linkedin} alt="Linkedin" width={20} height={20} />
@@ -57,13 +60,13 @@ const About = () => {
 						</div>
 					</div>
 				</div>
-				<div className="photo m-auto md:ml-auto">
+				<div className="photo m-auto md:ml-auto md:max-w-full max-w-[12rem]">
 					<Tilt glareEnable={false} glareMaxOpacity={0} scale={1} tiltMaxAngleX={8} tiltMaxAngleY={8}>
 						<Image src={photo} alt="Anna Zoi" width={300} height={300} className="rounded-3xl" />
 					</Tilt>
 				</div>
 			</div>
-			<div className="statics grid grid-cols-2 md:grid-cols-4 gap-8">
+			<div className="statics grid grid-cols-2 md:grid-cols-4 md:gap-8 gap-4">
 				{stats.map((item, index) => (
 					<motion.div
 						key={index}
@@ -73,11 +76,11 @@ const About = () => {
 						viewport={{ once: true, amount: 0.5 }}
 						className="text-center"
 					>
-						<p className="text-3xl font-bold text-[#5f6396]">
+						<p className="md:text-3xl text-2xl font-bold text-[#5f6396]">
 							<CountUp end={item.value} duration={2.5} enableScrollSpy />
 							{item.suffix}
 						</p>
-						<span className="text-gray-500">{item.label}</span>
+						<span className="text-gray-500 md:text-lg text-sm">{item.label}</span>
 					</motion.div>
 				))}
 			</div>

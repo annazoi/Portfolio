@@ -44,23 +44,23 @@ const Contact = () => {
 	return (
 		<div
 			id="contact"
-			className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-32 flex flex-col lg:flex-col gap-6 lg:gap-16 mb-20"
+			className="mx-auto max-w-7xl md:pt-0 pt-5 px-4 sm:px-6 lg:px-8 md:mt-32 mt-10 flex flex-col lg:flex-col md:gap-6 gap-1 lg:gap-16 md:mb-20 mb-10"
 		>
-			<h3 className="header text-left text-gradient">Get In Touch</h3>
-			<div className="flex flex-col lg:flex-row gap-16 lg:gap-32">
-				<div className="flex-1 flex flex-col gap-8 text-center lg:text-left">
+			<h3 className="header text-gradient text-center md:text-left">Get In Touch</h3>
+			<div className="flex flex-col lg:flex-row md:gap-10 gap-6 lg:gap-32">
+				<div className="flex-1 flex flex-col md:gap-8 gap-2 text-center lg:text-left">
 					<div className="flex flex-col gap-4">
-						<h2 className="text-4xl lg:text-5xl font-extrabold text-white">
+						<h2 className="text-xl lg:text-5xl font-extrabold text-white">
 							Let's build something <span className="text-gradient">amazing</span> together.
 						</h2>
 					</div>
-					<p className="text-slate-400 text-lg leading-relaxed">
+					<p className="text-slate-400 md:text-lg text-sm leading-relaxed">
 						Whether you have a question or just want to say hi, I'll try my best to get back to you!
 					</p>
 					<div className="flex flex-col gap-4 mt-4">
 						<a
 							href="mailto:anna.zoi@yahoo.com"
-							className="text-xl font-semibold text-white hover:text-primary transition-colors"
+							className="md:text-xl text-lg font-semibold text-white hover:text-primary transition-colors"
 						>
 							anna.zoi@yahoo.com
 						</a>
@@ -74,10 +74,10 @@ const Contact = () => {
 				>
 					<form
 						onSubmit={handleSubmit}
-						className="glass p-8 lg:p-12 rounded-[3rem] shadow-2xl border-white/5 relative overflow-hidden group/form"
+						className="glass md:p-8 p-4 lg:p-12 md:rounded-[3rem] rounded-[2rem] shadow-2xl border-white/5 relative overflow-hidden group/form"
 					>
-						<div className="flex flex-col gap-8 relative z-10">
-							<div className="flex flex-col sm:flex-row gap-8">
+						<div className="flex flex-col md:gap-8 gap-4 relative z-10">
+							<div className="flex flex-col sm:flex-row md:gap-8 gap-4">
 								<Input
 									name="First name"
 									label="First name *"
@@ -93,7 +93,7 @@ const Contact = () => {
 									onChange={handleChange('lastName')}
 								/>
 							</div>
-							<div className="flex flex-col sm:flex-row gap-8">
+							<div className="flex flex-col sm:flex-row md:gap-8 gap-4">
 								<Input
 									name="Email address"
 									label="Email address *"
@@ -133,7 +133,7 @@ const Contact = () => {
 							<button
 								type="submit"
 								disabled={status === 'sending'}
-								className="bg-primary text-white font-bold py-4 rounded-2xl hover:bg-primary/80 transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-primary/20 mt-4 disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100"
+								className="bg-primary text-white font-bold py-4 rounded-2xl hover:bg-primary/80 transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-primary/20 md:mt-4 mt-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100"
 							>
 								{status === 'sending' ? 'Sending…' : 'Send Message'}
 							</button>

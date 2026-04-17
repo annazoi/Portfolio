@@ -327,16 +327,19 @@ const Skills = () => {
 		}
 		return (
 			<div className="relative size-14 mx-auto">
-				<Image src={skill.icon} alt={skill.name} fill className="object-contain" />
+				<Image src={skill.icon} alt={skill.name} fill className="object-contain md:m-0 m-auto" />
 			</div>
 		);
 	};
 
 	return (
-		<div id="skills" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-32 flex flex-col gap-12">
+		<div
+			id="skills"
+			className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 md:mt-32 mt-10 md:pt-0 pt-5 flex flex-col md:gap-12 gap-8 pb-5 md:pb-0"
+		>
 			<div className="flex flex-col items-center gap-4">
 				<h3 className="header text-gradient">Technical Arsenal</h3>
-				<p className="text-slate-400 text-center max-w-2xl">
+				<p className="text-slate-400 text-center max-w-2xl text-sm md:text-lg">
 					A comprehensive toolkit of modern technologies and professional soft skills I use to build robust,
 					scalable applications.
 				</p>
@@ -345,7 +348,7 @@ const Skills = () => {
 				{skills.map((skill: Skill) => (
 					<div
 						key={skill.id}
-						className="skill flex flex-col gap-4 cursor-pointer group"
+						className="skill flex flex-col md:gap-4 gap-0 cursor-pointer group px-2"
 						onClick={() => handleSkillClick(skill)}
 					>
 						{renderIcon(skill)}
