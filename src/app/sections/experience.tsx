@@ -3,8 +3,15 @@
 import { Site } from '@/interfaces';
 import Image from 'next/image';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 import aveliavilla from '@/assets/sites/aveliavilla.jpg';
 import sunterra from '@/assets/sites/sunterra.jpg';
 import melba from '@/assets/sites/melba.jpg';
@@ -73,47 +80,13 @@ const Experience = () => {
 		},
 	];
 
-	// 1. Δυναμικό itemsPerSlide (2 για desktop, 1 για mobile)
-	const [itemsPerSlide, setItemsPerSlide] = useState(2);
-
-	useEffect(() => {
-		const handleResize = () => {
-			// Αν το πλάτος είναι κάτω από 1024px (lg), δείχνε 1 project
-			setItemsPerSlide(window.innerWidth < 1024 ? 1 : 2);
-		};
-		handleResize();
-		window.addEventListener('resize', handleResize);
-		return () => window.removeEventListener('resize', handleResize);
-	}, []);
-
-	// 2. Δημιουργία extended λίστας βάσει του itemsPerSlide
-	const extendedSites = [...sites.slice(-itemsPerSlide), ...sites, ...sites.slice(0, itemsPerSlide)];
-
-	const [index, setIndex] = useState(itemsPerSlide);
-	const [isAnimating, setIsAnimating] = useState(true);
-
-	// Επαναφορά του index αν αλλάξει το itemsPerSlide κατά το resize
-	useEffect(() => {
-		setIndex(itemsPerSlide);
-	}, [itemsPerSlide]);
-
-	const next = () => setIndex((prev) => prev + itemsPerSlide);
-	const prev = () => setIndex((prev) => prev - itemsPerSlide);
-
-	const handleAnimationComplete = () => {
-		if (index >= sites.length + itemsPerSlide) {
-			setIsAnimating(false);
-			setIndex(itemsPerSlide);
-		} else if (index < itemsPerSlide) {
-			setIsAnimating(false);
-			setIndex(sites.length);
-		}
-		setTimeout(() => setIsAnimating(true), 50);
-	};
-
 	return (
-		<div
+		<motion.div
 			id="experience"
+			initial={{ opacity: 0, y: 20 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true, amount: 0.1 }}
+			transition={{ duration: 0.5 }}
 			className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 md:mt-32 mt-10 flex flex-col md:gap-16 gap-5 pt-5 md:pt-0"
 		>
 			<div className="flex flex-col items-center gap-4">
@@ -121,75 +94,66 @@ const Experience = () => {
 				<p className="text-slate-400 text-center max-w-2xl">A timeline of my professional journey.</p>
 			</div>
 
-			<div className="relative group/carousel">
-				<div className="overflow-hidden p-4 -m-4 pb-8 md:pb-0">
-					<motion.div
-						className="flex"
-						animate={{ x: `-${(index / itemsPerSlide) * 100}%` }}
-						transition={isAnimating ? { duration: 0.6, ease: [0.22, 1, 0.36, 1] } : { duration: 0 }}
-						onAnimationComplete={handleAnimationComplete}
-					>
-						{/* 3. Grouping logic: Χωρίζουμε τα extendedSites σε slides */}
-						{Array.from({ length: Math.ceil(extendedSites.length / itemsPerSlide) }, (_, i) => {
-							const slideItems = extendedSites.slice(i * itemsPerSlide, (i + 1) * itemsPerSlide);
+			<div className="relative group/carousel experience-swiper">
+				<Swiper
+					modules={[Navigation, Pagination, Autoplay]}
+					spaceBetween={30}
+					slidesPerView={1}
+					navigation={{
+						prevEl: '.experience-prev',
+						nextEl: '.experience-next',
+					}}
+					pagination={{
+						clickable: true,
+					}}
+					autoplay={{ delay: 6000, disableOnInteraction: false }}
+					loop={true}
+					className="pb-16"
+				>
+					{sites.map((site, idx) => (
+						<SwiperSlide key={site.id}>
+							<a href={site.url} target="_blank" className="block">
+								<div
+									className={`hover:bg-primary/5 transition-all duration-300 md:p-8 p-5 rounded-3xl flex flex-col lg:flex-row items-center gap-8 lg:gap-16 
+                                                 ${idx % 2 !== 0 ? 'lg:flex-row-reverse' : ''} group cursor-pointer`}
+								>
+									<div className="flex-1 flex flex-col gap-6 w-full">
+										<div className="flex flex-col gap-2">
+											<p className="text-primary font-bold tracking-wider uppercase text-xs">
+												Featured Site
+											</p>
+											<h3 className="text-3xl font-bold text-white group-hover:text-primary transition-colors">
+												{site.name}
+											</h3>
+										</div>
+										<div className="bg-black/80 backdrop-blur-lg p-6 rounded-3xl relative z-10 border border-primary/30 group-hover:border-primary/60 transition-all shadow-[0_0_15px_rgba(79,57,246,0.2)]">
+											<p className="text-slate-200 leading-relaxed font-medium">{site.description}</p>
+										</div>
+									</div>
 
-							return (
-								<div key={i} className="min-w-full lg:px-4 flex flex-col gap-12 lg:gap-20">
-									{slideItems.map((site, idx) => {
-										return (
-											<a href={site.url} target="_blank" key={`${site.id}-${i}-${idx}`}>
-												<div
-													className={`hover:bg-primary/5 transition-all duration-300 md:p-8 p-5 rounded-3xl flex flex-col lg:flex-row items-center gap-8 lg:gap-16 
-                                                 ${(i * itemsPerSlide + idx) % 2 !== 0 ? 'lg:flex-row-reverse' : ''} group cursor-pointer`}
-												>
-													<div className="flex-1 flex flex-col gap-6 w-full">
-														<div className="flex flex-col gap-2">
-															<p className="text-primary font-bold tracking-wider uppercase text-xs">
-																Featured Site
-															</p>
-															<h3 className="text-3xl font-bold text-white group-hover:text-primary transition-colors">
-																{site.name}
-															</h3>
-														</div>
-														<div className="bg-black/80 backdrop-blur-lg p-6 rounded-3xl relative z-10 border border-primary/30 group-hover:border-primary/60 transition-all shadow-[0_0_15px_rgba(79,57,246,0.2)]">
-															<p className="text-slate-200 leading-relaxed font-medium">
-																{site.description}
-															</p>
-														</div>
-													</div>
-
-													<div className="flex-1 relative aspect-[16/10] w-full max-w-2xl overflow-hidden rounded-3xl border border-white/10 shadow-2xl group-hover:border-primary/50 transition-all duration-500">
-														<Image
-															src={site.photo}
-															alt={site.name}
-															fill
-															className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
-														/>
-													</div>
-												</div>
-											</a>
-										);
-									})}
+									<div className="flex-1 relative aspect-[16/10] w-full max-w-2xl overflow-hidden rounded-3xl border border-white/10 shadow-2xl group-hover:border-primary/50 transition-all duration-500">
+										<Image
+											src={site.photo}
+											alt={site.name}
+											fill
+											className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
+										/>
+									</div>
 								</div>
-							);
-						})}
-					</motion.div>
-				</div>
+							</a>
+						</SwiperSlide>
+					))}
+				</Swiper>
 
-				<button
-					onClick={prev}
-					className="absolute -left-4 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-20 opacity-0 group-hover/carousel:opacity-100 transition-all cursor-pointer hover:bg-primary/20 hover:border-primary/40"
-				>
-					<ChevronLeftIcon className="h-6 w-6" />
+				<button className="experience-prev absolute md:-left-2 left-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-10 md:opacity-0 group-hover/carousel:opacity-100 -translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 ring-1 ring-white/10 cursor-pointer">
+					<ChevronLeftIcon className="h-6 w-6 " />
 				</button>
-				<button
-					onClick={next}
-					className="absolute -right-4 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-20 opacity-0 group-hover/carousel:opacity-100 transition-all cursor-pointer hover:bg-primary/20 hover:border-primary/40"
-				>
-					<ChevronRightIcon className="h-6 w-6" />
+
+				<button className="experience-next absolute md:-right-2 right-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-10 md:opacity-0 group-hover/carousel:opacity-100 translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 ring-1 ring-white/10 cursor-pointer">
+					<ChevronRightIcon className="h-6 w-6 " />
 				</button>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 
