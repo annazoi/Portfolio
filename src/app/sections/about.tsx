@@ -24,7 +24,13 @@ const About = () => {
 			id="about"
 		>
 			<div className="flex flex-col-reverse items-center lg:flex-row m-auto gap-5 lg:gap-40">
-				<div className="text flex flex-col gap-6 lg:text-left text-center">
+				<motion.div
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.5 }}
+					viewport={{ once: true }}
+					className="text flex flex-col gap-6 lg:text-left text-center"
+				>
 					<h3 className="text-primary font-semibold tracking-wide md:text-sm text-lg">I am Anna Zoi</h3>
 					<h2 className="md:text-3xl text-2xl lg:text-7xl font-extrabold tracking-tight text-white">
 						Full-Stack <br className="hidden lg:block" />
@@ -59,12 +65,18 @@ const About = () => {
 							</a>
 						</div>
 					</div>
-				</div>
-				<div className="photo m-auto md:ml-auto md:max-w-full max-w-[12rem]">
+				</motion.div>
+				<motion.div
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.5, delay: 0.2 }}
+					viewport={{ once: true }}
+					className="photo m-auto md:ml-auto md:max-w-full max-w-[12rem]"
+				>
 					<Tilt glareEnable={false} glareMaxOpacity={0} scale={1} tiltMaxAngleX={8} tiltMaxAngleY={8}>
 						<Image src={photo} alt="Anna Zoi" width={300} height={300} className="rounded-3xl" />
 					</Tilt>
-				</div>
+				</motion.div>
 			</div>
 			<div className="statics grid grid-cols-2 md:grid-cols-4 md:gap-8 gap-4">
 				{stats.map((item, index) => (

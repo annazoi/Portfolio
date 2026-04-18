@@ -42,7 +42,7 @@ import { Skill } from '@/interfaces';
 import Image from 'next/image';
 import { useState } from 'react';
 import Modal from '@/components/ui/modal';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const Skills = () => {
 	const [isOpened, setIsOpened] = useState(false);
@@ -337,17 +337,23 @@ const Skills = () => {
 			id="skills"
 			className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 md:mt-32 mt-10 md:pt-0 pt-5 flex flex-col md:gap-12 gap-8 pb-5 md:pb-0"
 		>
-			<div className="flex flex-col items-center gap-4">
-				<h3 className="header text-gradient">Technical Arsenal</h3>
-				<p className="text-slate-400 text-center max-w-2xl text-sm md:text-lg">
-					A comprehensive toolkit of modern technologies and professional soft skills I use to build robust,
-					scalable applications.
-				</p>
-			</div>
+			<motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+				<div className="flex flex-col items-center gap-4">
+					<h3 className="header text-gradient">Technical Arsenal</h3>
+					<p className="text-slate-400 text-center max-w-2xl text-sm md:text-lg">
+						A comprehensive toolkit of modern technologies and professional soft skills I use to build robust,
+						scalable applications.
+					</p>
+				</div>
+			</motion.div>
 			<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
-				{skills.map((skill: Skill) => (
-					<div
+				{skills.map((skill: Skill, index: number) => (
+					<motion.div
 						key={skill.id}
+						initial={{ opacity: 0, y: 20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true }}
+						transition={{ duration: 0.5, delay: 0.05 * (index % 6) }}
 						className="skill flex flex-col md:gap-4 gap-0 cursor-pointer group px-2"
 						onClick={() => handleSkillClick(skill)}
 					>
@@ -355,7 +361,7 @@ const Skills = () => {
 						<h2 className="text-center font-medium text-slate-300 transition-colors group-hover:text-white">
 							{skill.name}
 						</h2>
-					</div>
+					</motion.div>
 				))}
 			</div>
 

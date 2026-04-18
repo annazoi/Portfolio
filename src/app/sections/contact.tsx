@@ -46,9 +46,17 @@ const Contact = () => {
 			id="contact"
 			className="mx-auto max-w-7xl md:pt-0 pt-5 px-4 sm:px-6 lg:px-8 md:mt-32 mt-10 flex flex-col lg:flex-col md:gap-6 gap-1 lg:gap-16 md:mb-20 mb-10"
 		>
-			<h3 className="header text-gradient text-center md:text-left">Get In Touch</h3>
+			<motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+				<h3 className="header text-gradient text-center md:text-left">Get In Touch</h3>
+			</motion.div>
 			<div className="flex flex-col lg:flex-row md:gap-10 gap-6 lg:gap-32">
-				<div className="flex-1 flex flex-col md:gap-8 gap-2 text-center lg:text-left">
+				<motion.div
+					initial={{ opacity: 0, x: -30 }}
+					whileInView={{ opacity: 1, x: 0 }}
+					transition={{ duration: 0.5 }}
+					viewport={{ once: true }}
+					className="flex-1 flex flex-col md:gap-8 gap-2 text-center lg:text-left"
+				>
 					<div className="flex flex-col gap-4">
 						<h2 className="text-xl lg:text-5xl font-extrabold text-white">
 							Let's build something <span className="text-gradient">amazing</span> together.
@@ -65,81 +73,88 @@ const Contact = () => {
 							anna.zoi@yahoo.com
 						</a>
 					</div>
-				</div>
+				</motion.div>
 
 				<motion.div
-					className="flex-1"
-					animate={{ y: [0, -12, 0] }}
-					transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+					initial={{ opacity: 0, x: 30 }}
+					whileInView={{ opacity: 1, x: 0 }}
+					transition={{ duration: 0.5, delay: 0.2 }}
+					viewport={{ once: true }}
+					className="flex-1 w-full"
 				>
-					<form
-						onSubmit={handleSubmit}
-						className="glass md:p-8 p-4 lg:p-12 md:rounded-[3rem] rounded-[2rem] shadow-2xl border-white/5 relative overflow-hidden group/form"
+					<motion.div
+						animate={{ y: [0, -12, 0] }}
+						transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
 					>
-						<div className="flex flex-col md:gap-8 gap-4 relative z-10">
-							<div className="flex flex-col sm:flex-row md:gap-8 gap-4">
-								<Input
-									name="First name"
-									label="First name *"
-									value={form.firstName}
-									required
-									onChange={handleChange('firstName')}
-								/>
-								<Input
-									name="Last name"
-									label="Last name *"
-									value={form.lastName}
-									required
-									onChange={handleChange('lastName')}
-								/>
-							</div>
-							<div className="flex flex-col sm:flex-row md:gap-8 gap-4">
-								<Input
-									name="Email address"
-									label="Email address *"
-									type="email"
-									value={form.email}
-									required
-									onChange={handleChange('email')}
-								/>
-								<Input
-									name="Phone number"
-									label="Phone number"
-									type="tel"
-									value={form.phone}
-									onChange={handleChange('phone')}
-								/>
-							</div>
-							<div>
-								<Textarea
-									name="Your message"
-									label="Message *"
-									value={form.message}
-									required
-									onChange={handleChange('message')}
-								/>
-							</div>
+						<form
+							onSubmit={handleSubmit}
+							className="glass md:p-8 p-4 lg:p-12 md:rounded-[3rem] rounded-[1rem] shadow-2xl border-white/5 relative overflow-hidden group/form"
+						>
+							<div className="flex flex-col md:gap-8 gap-4 relative z-10">
+								<div className="flex flex-col sm:flex-row md:gap-8 gap-4">
+									<Input
+										name="First name"
+										label="First name *"
+										value={form.firstName}
+										required
+										onChange={handleChange('firstName')}
+									/>
+									<Input
+										name="Last name"
+										label="Last name *"
+										value={form.lastName}
+										required
+										onChange={handleChange('lastName')}
+									/>
+								</div>
+								<div className="flex flex-col sm:flex-row md:gap-8 gap-4">
+									<Input
+										name="Email address"
+										label="Email address *"
+										type="email"
+										value={form.email}
+										required
+										onChange={handleChange('email')}
+									/>
+									<Input
+										name="Phone number"
+										label="Phone number"
+										type="tel"
+										value={form.phone}
+										onChange={handleChange('phone')}
+									/>
+								</div>
+								<div>
+									<Textarea
+										name="Your message"
+										label="Message *"
+										value={form.message}
+										required
+										onChange={handleChange('message')}
+									/>
+								</div>
 
-							{status === 'success' && (
-								<StatusMessage type="success" message="✅ Message sent! I'll get back to you soon." />
-							)}
-							{status === 'error' && (
-								<StatusMessage
-									type="error"
-									message="❌ Something went wrong. Please try again or email me directly."
-								/>
-							)}
+								{status === 'success' && (
+									<StatusMessage type="success" message="✅ Message sent! I'll get back to you soon." />
+								)}
+								{status === 'error' && (
+									<StatusMessage
+										type="error"
+										message="❌ Something went wrong. Please try again or email me directly."
+									/>
+								)}
 
-							<button
-								type="submit"
-								disabled={status === 'sending'}
-								className="bg-primary text-white font-bold py-4 rounded-2xl hover:bg-primary/80 transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-primary/20 md:mt-4 mt-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100"
-							>
-								{status === 'sending' ? 'Sending…' : 'Send Message'}
-							</button>
-						</div>
-						<div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover/form:opacity-100 transition-opacity" />
-					</form>
+								<button
+									type="submit"
+									disabled={status === 'sending'}
+									className="cursor-pointer bg-primary md:text-lg text-sm text-white font-bold py-2 px-4 md:py-4 md:px-6 rounded-xl md:rounded-2xl hover:bg-primary/80 transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-primary/20 md:mt-4 mt-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100"
+								>
+									{status === 'sending' ? 'Sending…' : 'Send Message'}
+								</button>
+							</div>
+							<div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover/form:opacity-100 transition-opacity" />
+						</form>
+					</motion.div>
 				</motion.div>
 			</div>
 		</div>

@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import Image from 'next/image';
 import university_logo from '@/assets/elmepa.png';
 import { animate } from 'animejs';
+import { motion } from 'framer-motion';
 
 const Education = () => {
 	const backgroundRef = useRef<HTMLDivElement>(null);
@@ -42,19 +43,29 @@ const Education = () => {
 	return (
 		<div
 			id="education"
-			className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 md:mt-32 mt-5 education flex flex-col md:gap-16 gap-7"
+			onMouseMove={handleMouseMove}
+			onMouseLeave={handleMouseLeave}
+			className="mx-auto max-w-7xl md:pt-0 pt-5 px-4 sm:px-6 lg:px-8 md:mt-32 mt-5 education flex flex-col md:gap-16 gap-7"
 		>
-			<div className="flex flex-col items-center gap-4">
+			<motion.div
+				initial={{ opacity: 0, y: 20 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.5 }}
+				viewport={{ once: true }}
+				className="flex flex-col items-center gap-4"
+			>
 				<h3 className="header text-gradient">Education</h3>
 				<p className="text-slate-400 text-center max-w-2xl text-sm md:text-lg">
 					Academic background and continuous learning in the field of engineering and technology.
 				</p>
-			</div>
-			<div
+			</motion.div>
+			<motion.div
+				initial={{ opacity: 0, y: 30 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.5, delay: 0.2 }}
+				viewport={{ once: true }}
 				ref={backgroundRef}
-				onMouseMove={handleMouseMove}
-				onMouseLeave={handleMouseLeave}
-				className="flex flex-col lg:flex-row items-center justify-between md:gap-12 gap-6 lg:gap-20 glass rounded-[3rem] px-8 md:py-16 py-5 background relative overflow-hidden group/edu"
+				className="flex flex-col lg:flex-row items-center justify-between md:gap-12 gap-6 lg:gap-20 glass md:rounded-[3rem] rounded-[1rem] px-8 md:py-16 py-5 background relative overflow-hidden group/edu"
 			>
 				<div className="relative z-10 lg:w-1/3 flex justify-center">
 					<a href="https://hmu.gr" target="_blank" className="hover:scale-105 transition-transform duration-300">
@@ -74,7 +85,7 @@ const Education = () => {
 				</div>
 
 				<div className="absolute inset-0 bg-primary/5 opacity-0 group-hover/edu:opacity-100 transition-opacity" />
-			</div>
+			</motion.div>
 		</div>
 	);
 };

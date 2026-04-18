@@ -40,6 +40,7 @@ import relayLanding from '@/assets/projects/relay/landing.png';
 
 import { Project } from '../../interfaces';
 import ProjectModal from '@/components/ui/project-modal';
+import { motion } from 'framer-motion';
 
 const Projects = () => {
 	const projects: Project[] = [
@@ -110,16 +111,35 @@ const Projects = () => {
 	};
 
 	return (
-		<div className="mx-auto md:mt-32 mt-0 px-4 relative overflow-hidden max-w-7xl" id="projects">
-			<div className="flex flex-col items-center gap-4 md:mb-16 mb-5">
+		<motion.div
+			id="projects"
+			initial={{ opacity: 0, y: 20 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true, amount: 0.1 }}
+			transition={{ duration: 0.5 }}
+			className="mx-auto md:mt-32 mt-0 px-4 relative overflow-hidden max-w-7xl"
+		>
+			<motion.div
+				initial={{ opacity: 0, y: 20 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true }}
+				transition={{ duration: 0.5 }}
+				className="flex flex-col items-center gap-4 md:mb-16 mb-5"
+			>
 				<h3 className="header text-gradient">Featured Projects</h3>
 				<p className="text-slate-400 text-center max-w-2xl text-sm md:text-lg">
 					A selection of my recent work, ranging from real-time collaboration tools to complex full-stack
 					applications.
 				</p>
-			</div>
+			</motion.div>
 
-			<div className="relative group/carousel projects-swiper">
+			<motion.div
+				initial={{ opacity: 0, y: 30 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true, amount: 0.1 }}
+				transition={{ duration: 0.5, delay: 0.2 }}
+				className="relative group/carousel projects-swiper"
+			>
 				<Swiper
 					modules={[Navigation, Pagination, Autoplay]}
 					spaceBetween={0}
@@ -128,7 +148,6 @@ const Projects = () => {
 						prevEl: '.projects-prev',
 						nextEl: '.projects-next',
 					}}
-					pagination={{ clickable: true }}
 					autoplay={{ delay: 6000, disableOnInteraction: false }}
 					loop={true}
 					breakpoints={{
@@ -203,12 +222,12 @@ const Projects = () => {
 				<button className="projects-next absolute md:-right-2 right-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-10 md:opacity-0 group-hover/carousel:opacity-100 translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 ring-1 ring-white/10 cursor-pointer">
 					<ChevronRightIcon className="h-6 w-6 " />
 				</button>
-			</div>
+			</motion.div>
 
 			{selectedProject && (
 				<ProjectModal project={selectedProject} onOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 			)}
-		</div>
+		</motion.div>
 	);
 };
 
