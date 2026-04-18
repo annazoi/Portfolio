@@ -126,11 +126,12 @@
 		border: 0.2rem solid #744484;
 	}
 
-	.education .background {
+	.background {
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: 120%;
 		background-image: url('/assets/studies.png');
+		background-color: rgba(255, 255, 255, 0.05);
 	}
 
 	.experience .name:hover .photo {
