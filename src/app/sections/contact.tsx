@@ -44,7 +44,7 @@ const Contact = () => {
 	return (
 		<div
 			id="contact"
-			className="mx-auto max-w-7xl md:pt-0 pt-5 px-4 sm:px-6 lg:px-8 md:mt-32 mt-10 flex flex-col lg:flex-col md:gap-6 gap-1 lg:gap-16 md:mb-20 mb-10"
+			className="mx-auto max-w-7xl md:pt-0 pt-5 px-4 sm:px-6 lg:px-8 md:mt-32 mt-10 flex flex-col lg:flex-col md:gap-6 gap-1 lg:gap-16 pb-20"
 		>
 			<motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
 				<h3 className="header text-gradient text-center md:text-left">Get In Touch</h3>

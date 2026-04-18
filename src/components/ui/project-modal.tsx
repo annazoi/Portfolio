@@ -3,9 +3,14 @@
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
 import { XMarkIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Project } from '@/interfaces';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 interface ProjectModalProps {
 	project: Project;
@@ -15,17 +20,6 @@ interface ProjectModalProps {
 
 export default function ProjectModal({ project, onOpen, onClose }: ProjectModalProps) {
 	const photos = project.photos || [project.photo];
-	const [currentIndex, setCurrentIndex] = useState(0);
-
-	const next = (e: React.MouseEvent) => {
-		e.stopPropagation();
-		setCurrentIndex((prev) => (prev + 1) % photos.length);
-	};
-
-	const prev = (e: React.MouseEvent) => {
-		e.stopPropagation();
-		setCurrentIndex((prev) => (prev - 1 + photos.length) % photos.length);
-	};
 
 	return (
 		<Dialog open={onOpen} onClose={onClose} className="relative z-50">
@@ -38,7 +32,7 @@ export default function ProjectModal({ project, onOpen, onClose }: ProjectModalP
 				<div className="flex min-h-full items-center justify-center p-4 text-center sm:p-12">
 					<DialogPanel
 						transition
-						className="relative transform overflow-hidden rounded-[2.5rem] bg-slate-900/95 backdrop-blur-2xl border border-white/10 p-4 text-left shadow-2xl transition-all duration-300 ease-out data-closed:translate-y-4 data-closed:opacity-0 data-closed:scale-95 sm:my-8 sm:w-full"
+						className="relative transform overflow-hidden rounded-[2.5rem] bg-slate-900/95 backdrop-blur-2xl border border-white/10 p-4 text-left shadow-2xl transition-all duration-300 ease-out data-closed:translate-y-4 data-closed:opacity-0 data-closed:scale-95 sm:my-8 sm:w-full max-w-5xl"
 					>
 						<button
 							onClick={onClose}
@@ -49,52 +43,46 @@ export default function ProjectModal({ project, onOpen, onClose }: ProjectModalP
 
 						<div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-8 h-full">
 							{/* Left: Image Slider */}
-							<div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-black/40 border border-white/5 group">
-								<AnimatePresence mode="wait">
-									<motion.div
-										key={currentIndex}
-										initial={{ opacity: 0, x: 20 }}
-										animate={{ opacity: 1, x: 0 }}
-										exit={{ opacity: 0, x: -20 }}
-										transition={{ duration: 0.3 }}
-										className="relative w-full h-full"
-									>
-										{photos[currentIndex] && (
-											<Image
-												src={photos[currentIndex]}
-												alt={`${project.name} photo ${currentIndex + 1}`}
-												fill
-												className="object-contain p-2"
-											/>
-										)}
-									</motion.div>
-								</AnimatePresence>
+							<div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-black/40 border border-white/5 group modal-swiper">
+								<Swiper
+									modules={[Navigation, Pagination, Autoplay]}
+									spaceBetween={0}
+									slidesPerView={1}
+									navigation={{
+										prevEl: '.modal-prev',
+										nextEl: '.modal-next',
+									}}
+									pagination={{
+										clickable: true,
+										dynamicBullets: true,
+									}}
+									autoplay={{ delay: 5000, disableOnInteraction: false }}
+									loop={photos.length > 1}
+									className="h-full w-full"
+								>
+									{photos.map((photo, i) => (
+										<SwiperSlide key={i}>
+											<div className="relative w-full h-full flex items-center justify-center">
+												<Image
+													src={photo}
+													alt={`${project.name} photo ${i + 1}`}
+													fill
+													className="object-contain p-2"
+													priority={i === 0}
+												/>
+											</div>
+										</SwiperSlide>
+									))}
+								</Swiper>
 
 								{photos.length > 1 && (
 									<>
-										<button
-											onClick={prev}
-											className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white backdrop-blur-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity"
-										>
+										<button className="modal-prev absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white backdrop-blur-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-primary/20 hover:border-primary/40">
 											<ChevronLeftIcon className="size-5" />
 										</button>
-										<button
-											onClick={next}
-											className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white backdrop-blur-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity"
-										>
+										<button className="modal-next absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white backdrop-blur-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-primary/20 hover:border-primary/40">
 											<ChevronRightIcon className="size-5" />
 										</button>
-
-										<div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5">
-											{photos.map((_, i) => (
-												<div
-													key={i}
-													className={`h-1.5 rounded-full transition-all duration-300 ${
-														i === currentIndex ? 'w-6 bg-primary' : 'w-1.5 bg-white/20'
-													}`}
-												/>
-											))}
-										</div>
 									</>
 								)}
 							</div>
