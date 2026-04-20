@@ -41,7 +41,11 @@ const About = () => {
 						and performance.
 					</p>
 					<div className="flex items-center gap-4 lg:flex-row flex-col">
-						<a className="max-w-fit mx-auto lg:ml-0 md:mt-8 mt-2 link group cursor-pointer" href="">
+						<a
+							className="max-w-fit mx-auto lg:ml-0 md:mt-8 mt-2 link group cursor-pointer"
+							href="/assets/resume.pdf"
+							download="Anna_Zoi_Resume.pdf"
+						>
 							<span>Download CV</span>
 							<ArrowDownTrayIcon className="size-5" />
 						</a>
