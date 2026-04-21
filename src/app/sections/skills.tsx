@@ -36,6 +36,7 @@ import communication from '@/assets/skills/communication.png';
 import growthMindset from '@/assets/skills/growthMindset.png';
 import adaptability from '@/assets/skills/adaptability.png';
 import clockIcon from '@/assets/skills/clockIcon.png';
+import kubernetes from '@/assets/skills/kubernetes.png';
 
 import { Skill } from '@/interfaces';
 
@@ -306,6 +307,13 @@ const Skills = () => {
 			id: 's6',
 			name: 'Time Management',
 			icon: clockIcon,
+			description:
+				'Optimizing productivity by managing multiple priorities and consistently meeting project deadlines with high quality.',
+		},
+		{
+			id: 's7',
+			name: 'Kubernetes',
+			icon: kubernetes,
 			description:
 				'Optimizing productivity by managing multiple priorities and consistently meeting project deadlines with high quality.',
 		},
