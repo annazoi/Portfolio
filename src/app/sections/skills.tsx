@@ -36,7 +36,7 @@ import communication from '@/assets/skills/communication.png';
 import growthMindset from '@/assets/skills/growthMindset.png';
 import adaptability from '@/assets/skills/adaptability.png';
 import clockIcon from '@/assets/skills/clockIcon.png';
-import kubernetes from '@/assets/skills/kubernetes.png';
+import kubernetes from '@/assets/skills/Kubernetes.png';
 
 import { Skill } from '@/interfaces';
 
