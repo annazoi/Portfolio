@@ -4,13 +4,18 @@ import './style.css';
 import photo from '@/assets/about/photo.png';
 import github from '@/assets/about/github.png';
 import linkedin from '@/assets/about/linkedin.png';
-import { ArrowDownTrayIcon } from '@heroicons/react/24/outline';
+import { ArrowDownTrayIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react';
 import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
 import Image from 'next/image';
+import { useState } from 'react';
 import Tilt from 'react-parallax-tilt';
 
+const CV_URL = '/assets/resume-anna-zoi.pdf';
+
 const About = () => {
+	const [cvOpen, setCvOpen] = useState(false);
 	const stats = [
 		{ value: 10, label: 'Projects Built', suffix: '+' },
 		{ value: 14, label: 'Live Websites', suffix: '+' },
@@ -41,14 +46,45 @@ const About = () => {
 						and performance.
 					</p>
 					<div className="flex items-center gap-4 lg:flex-row flex-col">
-						<a
+						<button
+							type="button"
 							className="max-w-fit mx-auto lg:ml-0 md:mt-8 mt-2 link group cursor-pointer"
-							href="/assets/resume.pdf"
-							download="Anna_Zoi_Resume.pdf"
+							onClick={() => setCvOpen(true)}
 						>
-							<span>Download CV</span>
+							<span>Resume</span>
 							<ArrowDownTrayIcon className="size-5" />
-						</a>
+						</button>
+						<Dialog open={cvOpen} onClose={() => setCvOpen(false)} className="relative z-50">
+							<DialogBackdrop
+								transition
+								className="fixed inset-0 bg-slate-950/80 backdrop-blur-md transition-opacity duration-300 ease-out data-closed:opacity-0"
+							/>
+							<div className="fixed inset-0 z-10 flex items-center justify-center p-4 sm:p-8">
+								<DialogPanel
+									transition
+									className="relative flex w-full max-w-4xl flex-col gap-4 rounded-2xl border border-white/10 bg-slate-900/95 p-4 shadow-2xl transition-all duration-300 ease-out data-closed:translate-y-4 data-closed:opacity-0 data-closed:scale-95 sm:p-6"
+								>
+									<button
+										type="button"
+										onClick={() => setCvOpen(false)}
+										className="absolute right-4 top-4 rounded-full p-2 text-slate-400 hover:bg-white/10 hover:text-white z-10"
+										aria-label="Close"
+									>
+										<XMarkIcon className="size-6" />
+									</button>
+									<iframe title="Resume preview" src={CV_URL} className="h-[70vh] w-full rounded-xl border border-white/10 bg-black/40" />
+									<a
+										href={CV_URL}
+										download="resume-anna-zoi.pdf"
+										className="link group mx-auto w-fit cursor-pointer flex tems-center gap-[.5rem]"
+										onClick={() => setCvOpen(false)}
+									>
+										<span>Download PDF</span>
+										<ArrowDownTrayIcon className="size-5" />
+									</a>
+								</DialogPanel>
+							</div>
+						</Dialog>
 						{/* social */}
 						<div className="flex items-center gap-4">
 							<a

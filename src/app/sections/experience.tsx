@@ -2,6 +2,7 @@
 
 import { Site } from '@/interfaces';
 import Image from 'next/image';
+import { useLayoutEffect, useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -19,6 +20,14 @@ import cretantour from '@/assets/sites/cretantour.jpg';
 import diorebeauty from '@/assets/sites/diorebeauty.jpg';
 import xylouris from '@/assets/sites/xylouris.jpg';
 import transfersheraklion from '@/assets/sites/transfersheraklion.jpg';
+
+function chunkSites<T>(items: T[], size: number): T[][] {
+	const chunks: T[][] = [];
+	for (let i = 0; i < items.length; i += size) {
+		chunks.push(items.slice(i, i + size));
+	}
+	return chunks;
+}
 
 const Experience = () => {
 	const sites: Site[] = [
@@ -80,6 +89,16 @@ const Experience = () => {
 		},
 	];
 
+	const [isMd, setIsMd] = useState(false);
+	useLayoutEffect(() => {
+		const mq = window.matchMedia('(min-width: 768px)');
+		const up = () => setIsMd(mq.matches);
+		up();
+		mq.addEventListener('change', up);
+		return () => mq.removeEventListener('change', up);
+	}, []);
+	const slides = isMd ? chunkSites(sites, 2) : sites.map((s) => [s]);
+
 	return (
 		<motion.div
 			id="experience"
@@ -96,9 +115,11 @@ const Experience = () => {
 
 			<div className="relative group/carousel experience-swiper">
 				<Swiper
+					key={isMd ? 'pair' : 'single'}
 					modules={[Navigation, Pagination, Autoplay]}
 					spaceBetween={30}
 					slidesPerView={1}
+					slidesPerGroup={1}
 					navigation={{
 						prevEl: '.experience-prev',
 						nextEl: '.experience-next',
@@ -110,37 +131,44 @@ const Experience = () => {
 					loop={true}
 					className="pb-16"
 				>
-					{sites.map((site, idx) => (
-						<SwiperSlide key={site.id}>
-							<a href={site.url} target="_blank" className="block">
-								<div
-									className={`hover:bg-primary/5 transition-all duration-300 md:p-8 p-5 rounded-3xl flex flex-col lg:flex-row items-center gap-8 lg:gap-16 
-                                                 ${idx % 2 !== 0 ? 'lg:flex-row-reverse' : ''} group cursor-pointer`}
-								>
-									<div className="flex-1 flex flex-col gap-6 w-full">
-										<div className="flex flex-col gap-2">
-											<p className="text-primary font-bold tracking-wider uppercase text-xs">
-												Featured Site
-											</p>
-											<h3 className="text-3xl font-bold text-white group-hover:text-primary transition-colors">
-												{site.name}
-											</h3>
-										</div>
-										<div className="bg-black/80 backdrop-blur-lg p-6 rounded-3xl relative z-10 border border-primary/30 group-hover:border-primary/60 transition-all shadow-[0_0_15px_rgba(79,57,246,0.2)]">
-											<p className="text-slate-200 leading-relaxed font-medium">{site.description}</p>
-										</div>
-									</div>
+					{slides.map((pair, slideIdx) => (
+						<SwiperSlide key={pair.map((s) => s.id).join('-')} className="!h-auto">
+							<div className="flex flex-col gap-8 md:gap-16">
+								{pair.map((site, iInPair) => {
+									const idx = isMd ? slideIdx * 2 + iInPair : slideIdx;
+									return (
+										<a key={site.id} href={site.url} target="_blank" className="block">
+											<div
+												className={`hover:bg-primary/5 transition-all duration-300 md:p-8 p-5 rounded-3xl flex flex-col lg:flex-row items-center gap-8 lg:gap-16 
+													${idx % 2 !== 0 ? 'lg:flex-row-reverse' : ''} group cursor-pointer`}
+											>
+												<div className="flex-1 flex flex-col gap-6 w-full">
+													<div className="flex flex-col gap-2">
+														<p className="text-primary font-bold tracking-wider uppercase text-xs">
+															Featured Site
+														</p>
+														<h3 className="text-3xl font-bold text-white group-hover:text-primary transition-colors">
+															{site.name}
+														</h3>
+													</div>
+													<div className="bg-black/80 backdrop-blur-lg p-6 rounded-3xl relative z-10 border border-primary/30 group-hover:border-primary/60 transition-all shadow-[0_0_15px_rgba(79,57,246,0.2)]">
+														<p className="text-slate-200 leading-relaxed font-medium">{site.description}</p>
+													</div>
+												</div>
 
-									<div className="flex-1 relative aspect-[16/10] w-full max-w-2xl overflow-hidden rounded-3xl border border-white/10 shadow-2xl group-hover:border-primary/50 transition-all duration-500">
-										<Image
-											src={site.photo}
-											alt={site.name}
-											fill
-											className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
-										/>
-									</div>
-								</div>
-							</a>
+												<div className="flex-1 relative aspect-[16/10] w-full max-w-2xl overflow-hidden rounded-3xl border border-white/10 shadow-2xl group-hover:border-primary/50 transition-all duration-500">
+													<Image
+														src={site.photo}
+														alt={site.name}
+														fill
+														className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
+													/>
+												</div>
+											</div>
+										</a>
+									);
+								})}
+							</div>
 						</SwiperSlide>
 					))}
 				</Swiper>

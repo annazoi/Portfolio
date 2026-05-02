@@ -38,6 +38,15 @@ import drobeClothingOverview from '@/assets/projects/drobe/clothing_overview.jpg
 import drobeCreatedClothingItem from '@/assets/projects/drobe/created_clothing_item.jpg';
 import relayLanding from '@/assets/projects/relay/landing.png';
 
+import latherLabHome from '@/assets/projects/latherlab/home.png'
+import latherLabCollection from '@/assets/projects/latherlab/collection.jpg'
+import latherLabProduct from '@/assets/projects/latherlab/product.jpg'
+import latherLabCart from '@/assets/projects/latherlab/cart.jpg'
+import latherLabCheckout from '@/assets/projects/latherlab/checkout.jpg'
+import latherLabDashboard from '@/assets/projects/latherlab/dashboard.jpg'
+import latherLabProducts from '@/assets/projects/latherlab/products.jpg'
+import latherLabContact from '@/assets/projects/latherlab/contact.jpg'
+
 import { Project } from '../../interfaces';
 import ProjectModal from '@/components/ui/project-modal';
 import { motion } from 'framer-motion';
@@ -91,15 +100,25 @@ const Projects = () => {
 				'A modern digital wardrobe app that lets users organize their clothes with smart background removal for clean, ready-to-use photos. Users can mix and match items on an easy-to-use canvas to plan outfits and share their style with others. Built with React and NestJS, Drobe combines AI-powered image processing with a fast, scalable, and cross-platform-ready design.',
 			url: 'https://drobe.annazoi.dev/',
 		},
+
 		{
 			id: '4',
-			name: 'Relay',
-			photo: relayLanding,
-			photos: [relayLanding],
+			name: 'Lather Shop',
+			photo: latherLabHome,
+			photos: [latherLabHome, latherLabCollection, latherLabProduct, latherLabCart, latherLabCheckout, latherLabDashboard, latherLabProducts, latherLabContact],
 			description:
-				'A high-performance communication and data transfer platform designed for seamless real-time connectivity. Relay provides robust infrastructure for secure, scalable, and instant messaging systems across global networks.',
-			url: 'https://relay.annazoi.dev/',
+				'Handmade soap e-commerce platform with product browsing and secure checkout.',
+			url: 'https://latherlab.annazoi.dev/',
 		},
+		// {
+		// 	id: '5',
+		// 	name: 'Relay',
+		// 	photo: relayLanding,
+		// 	photos: [relayLanding],
+		// 	description:
+		// 		'A high-performance communication and data transfer platform designed for seamless real-time connectivity. Relay provides robust infrastructure for secure, scalable, and instant messaging systems across global networks.',
+		// 	url: 'https://relay.annazoi.dev/',
+		// },
 	];
 
 	const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -175,7 +194,7 @@ const Projects = () => {
 											<Image
 												src={project.photo}
 												alt={project.name}
-												className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-40 group-hover:opacity-60 rounded-2xl scale-105"
+												className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-40 group-hover:opacity-60 rounded-2xl scale-105 h-full"
 											/>
 										)}
 
