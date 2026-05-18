@@ -25,25 +25,25 @@ export default function ProjectModal({ project, onOpen, onClose }: ProjectModalP
 		<Dialog open={onOpen} onClose={onClose} className="relative z-50">
 			<DialogBackdrop
 				transition
-				className="fixed inset-0 bg-slate-950/80 backdrop-blur-md transition-opacity duration-300 ease-out data-closed:opacity-0"
+				className="fixed inset-0 bg-background/90 backdrop-blur-md transition-opacity duration-300 ease-out data-closed:opacity-0"
 			/>
 
 			<div className="fixed inset-0 z-10 w-screen overflow-y-auto">
 				<div className="flex min-h-full items-center justify-center p-4 text-center sm:p-12">
 					<DialogPanel
 						transition
-						className="relative transform overflow-hidden rounded-[2.5rem] bg-slate-900/95 backdrop-blur-2xl border border-white/10 p-4 text-left shadow-2xl transition-all duration-300 ease-out data-closed:translate-y-4 data-closed:opacity-0 data-closed:scale-95 sm:my-8 sm:w-full max-w-5xl"
+						className="relative transform overflow-hidden rounded-[2.5rem] bg-muted backdrop-blur-2xl border border-border p-4 text-left shadow-2xl transition-all duration-300 ease-out data-closed:translate-y-4 data-closed:opacity-0 data-closed:scale-95 sm:my-8 sm:w-full max-w-5xl"
 					>
 						<button
 							onClick={onClose}
-							className="absolute top-6 right-6 p-2 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-colors z-20"
+							className="absolute top-6 right-6 p-2 rounded-full text-muted-foreground hover:text-foreground hover:bg-white/5 transition-colors z-20"
 						>
 							<XMarkIcon className="size-6" />
 						</button>
 
 						<div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-8 h-full">
 							{/* Left: Image Slider */}
-							<div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-black/40 border border-white/5 group modal-swiper">
+							<div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-secondary border border-border group modal-swiper">
 								<Swiper
 									modules={[Navigation, Pagination, Autoplay]}
 									spaceBetween={0}
@@ -77,10 +77,10 @@ export default function ProjectModal({ project, onOpen, onClose }: ProjectModalP
 
 								{photos.length > 1 && (
 									<>
-										<button className="modal-prev absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white backdrop-blur-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-primary/20 hover:border-primary/40">
+										<button className="modal-prev absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/80 text-foreground backdrop-blur-md border border-border opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-white/5 hover:border-white/15">
 											<ChevronLeftIcon className="size-5" />
 										</button>
-										<button className="modal-next absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white backdrop-blur-md border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-primary/20 hover:border-primary/40">
+										<button className="modal-next absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-background/80 text-foreground backdrop-blur-md border border-border opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-white/5 hover:border-white/15">
 											<ChevronRightIcon className="size-5" />
 										</button>
 									</>
@@ -92,11 +92,11 @@ export default function ProjectModal({ project, onOpen, onClose }: ProjectModalP
 								<div>
 									<DialogTitle
 										as="h3"
-										className="text-2xl font-black text-white mb-4 uppercase tracking-tight italic glow-text-primary"
+										className="text-2xl font-semibold text-foreground mb-4 tracking-tight"
 									>
 										{project.name}
 									</DialogTitle>
-									<p className="text-slate-400 leading-relaxed text-sm mb-6 font-medium">
+									<p className="text-muted-foreground leading-relaxed text-sm mb-6 font-normal">
 										{project.description}
 									</p>
 								</div>
@@ -106,7 +106,7 @@ export default function ProjectModal({ project, onOpen, onClose }: ProjectModalP
 										href={project.url}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="w-full py-3 rounded-2xl bg-primary text-white font-bold text-center shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-[1.02] active:scale-[0.98] transition-all uppercase tracking-widest italic text-xs"
+										className="w-full py-3 rounded-2xl bg-primary text-primary-foreground font-medium text-center hover:bg-foreground/90 hover:scale-[1.01] active:scale-[0.98] transition-all uppercase tracking-widest text-xs"
 									>
 										Visit Live Project
 									</a>

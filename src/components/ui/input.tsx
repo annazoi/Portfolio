@@ -12,7 +12,7 @@ export default function Input({ name, label, value, type = 'text', onChange, req
 		<div className="w-full group">
 			<label
 				htmlFor={name}
-				className="block text-sm font-medium text-slate-400 group-focus-within:text-primary transition-colors mb-2 ml-1"
+				className="block text-sm font-medium text-muted-foreground group-focus-within:text-foreground transition-colors mb-2 ml-1"
 			>
 				{label}
 			</label>
@@ -25,7 +25,7 @@ export default function Input({ name, label, value, type = 'text', onChange, req
 					value={value}
 					onChange={onChange}
 					required={required}
-					className="block w-full bg-white/5 md:text-lg text-sm border border-white/10 rounded-xl md:rounded-2xl md:py-4 py-2 md:px-6 px-4 text-white placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all duration-300 glass"
+					className="block w-full bg-white/[0.03] md:text-lg text-sm border border-border rounded-xl md:rounded-2xl md:py-4 py-2 md:px-6 px-4 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-white/20 focus:border-white/20 transition-all duration-300 glass"
 				/>
 			</div>
 		</div>

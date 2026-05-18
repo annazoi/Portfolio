@@ -1,7 +1,7 @@
 'use client';
 
 import './style.css';
-import photo from '@/assets/about/photo.png';
+import photo from '@/assets/about/anna-zoi.jpg';
 import github from '@/assets/about/github.png';
 import linkedin from '@/assets/about/linkedin.png';
 import { ArrowDownTrayIcon, XMarkIcon } from '@heroicons/react/24/outline';
@@ -36,12 +36,12 @@ const About = () => {
 					viewport={{ once: true }}
 					className="text flex flex-col gap-6 lg:text-left text-center"
 				>
-					<h3 className="text-primary font-semibold tracking-wide md:text-sm text-lg">I am Anna Zoi</h3>
-					<h2 className="md:text-3xl text-2xl lg:text-7xl font-extrabold tracking-tight text-white">
+					<h3>I am Anna Zoi</h3>
+					<h2 className="font-display md:text-3xl text-2xl lg:text-6xl font-semibold tracking-tight text-foreground">
 						Full-Stack <br className="hidden lg:block" />
-						<span className="text-gradient">Developer.</span>
+						Developer.
 					</h2>
-					<p className="md:text-lg text-sm text-slate-400 max-w-xl mx-auto lg:mx-0">
+					<p className="md:text-lg text-sm max-w-xl mx-auto lg:mx-0">
 						I turn complex ideas into intuitive, high-performing digital products with a focus on user experience
 						and performance.
 					</p>
@@ -57,17 +57,17 @@ const About = () => {
 						<Dialog open={cvOpen} onClose={() => setCvOpen(false)} className="relative z-50">
 							<DialogBackdrop
 								transition
-								className="fixed inset-0 bg-slate-950/80 backdrop-blur-md transition-opacity duration-300 ease-out data-closed:opacity-0"
+								className="fixed inset-0 bg-background/90 backdrop-blur-md transition-opacity duration-300 ease-out data-closed:opacity-0"
 							/>
 							<div className="fixed inset-0 z-10 flex items-center justify-center p-4 sm:p-8">
 								<DialogPanel
 									transition
-									className="relative flex w-full max-w-4xl flex-col gap-4 rounded-2xl border border-white/10 bg-slate-900/95 p-4 shadow-2xl transition-all duration-300 ease-out data-closed:translate-y-4 data-closed:opacity-0 data-closed:scale-95 sm:p-6"
+									className="relative flex w-full max-w-4xl flex-col gap-4 rounded-2xl border border-border bg-muted p-4 shadow-2xl transition-all duration-300 ease-out data-closed:translate-y-4 data-closed:opacity-0 data-closed:scale-95 sm:p-6"
 								>
 									<button
 										type="button"
 										onClick={() => setCvOpen(false)}
-										className="absolute right-4 top-4 rounded-full p-2 text-slate-400 hover:bg-white/10 hover:text-white z-10"
+										className="absolute right-4 top-4 rounded-full p-2 text-muted-foreground hover:bg-white/5 hover:text-foreground z-10"
 										aria-label="Close"
 									>
 										<XMarkIcon className="size-6" />
@@ -86,7 +86,6 @@ const About = () => {
 							</div>
 						</Dialog>
 						{/* social */}
-						<div className="flex items-center gap-4">
 							<a
 								href="https://github.com/annazoi"
 								target="_blank"
@@ -95,6 +94,7 @@ const About = () => {
 								<span>GitHub</span>
 								<Image src={github} alt="GitHub" width={20} height={20} />
 							</a>
+
 							<a
 								href="https://www.linkedin.com/in/anna-zoi/"
 								target="_blank"
@@ -103,7 +103,6 @@ const About = () => {
 								<span>LinkedIn</span>
 								<Image src={linkedin} alt="Linkedin" width={20} height={20} />
 							</a>
-						</div>
 					</div>
 				</motion.div>
 				<motion.div
@@ -128,11 +127,11 @@ const About = () => {
 						viewport={{ once: true, amount: 0.5 }}
 						className="text-center"
 					>
-						<p className="md:text-3xl text-2xl font-bold text-[#5f6396]">
+						<p className="md:text-3xl text-2xl font-semibold text-foreground tracking-tight">
 							<CountUp end={item.value} duration={2.5} enableScrollSpy />
 							{item.suffix}
 						</p>
-						<span className="text-gray-500 md:text-lg text-sm">{item.label}</span>
+						<span className="text-muted-foreground md:text-base text-sm font-medium">{item.label}</span>
 					</motion.div>
 				))}
 			</div>

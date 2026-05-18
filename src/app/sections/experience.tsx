@@ -110,7 +110,7 @@ const Experience = () => {
 		>
 			<div className="flex flex-col items-center gap-4">
 				<h3 className="header text-gradient">Experience</h3>
-				<p className="text-slate-400 text-center max-w-2xl">A timeline of my professional journey.</p>
+				<p className="text-muted-foreground text-center max-w-2xl font-normal">A timeline of my professional journey.</p>
 			</div>
 
 			<div className="relative group/carousel experience-swiper">
@@ -139,24 +139,24 @@ const Experience = () => {
 									return (
 										<a key={site.id} href={site.url} target="_blank" className="block">
 											<div
-												className={`hover:bg-primary/5 transition-all duration-300 md:p-8 p-5 rounded-3xl flex flex-col lg:flex-row items-center gap-8 lg:gap-16 
+												className={`hover:bg-white/[0.02] transition-all duration-300 md:p-8 p-5 rounded-3xl flex flex-col lg:flex-row items-center gap-8 lg:gap-16 
 													${idx % 2 !== 0 ? 'lg:flex-row-reverse' : ''} group cursor-pointer`}
 											>
 												<div className="flex-1 flex flex-col gap-6 w-full">
 													<div className="flex flex-col gap-2">
-														<p className="text-primary font-bold tracking-wider uppercase text-xs">
+														<p className="text-muted-foreground font-medium tracking-wider uppercase text-xs">
 															Featured Site
 														</p>
-														<h3 className="text-3xl font-bold text-white group-hover:text-primary transition-colors">
+														<h3 className="text-3xl font-semibold text-foreground group-hover:text-primary transition-colors tracking-tight">
 															{site.name}
 														</h3>
 													</div>
-													<div className="bg-black/80 backdrop-blur-lg p-6 rounded-3xl relative z-10 border border-primary/30 group-hover:border-primary/60 transition-all shadow-[0_0_15px_rgba(79,57,246,0.2)]">
-														<p className="text-slate-200 leading-relaxed font-medium">{site.description}</p>
+													<div className="bg-muted/80 backdrop-blur-lg p-6 rounded-3xl relative z-10 border border-border group-hover:border-white/15 transition-all">
+														<p className="text-secondary-foreground leading-relaxed font-normal">{site.description}</p>
 													</div>
 												</div>
 
-												<div className="flex-1 relative aspect-[16/10] w-full max-w-2xl overflow-hidden rounded-3xl border border-white/10 shadow-2xl group-hover:border-primary/50 transition-all duration-500">
+												<div className="flex-1 relative aspect-[16/10] w-full max-w-2xl overflow-hidden rounded-3xl border border-border shadow-2xl group-hover:border-white/15 transition-all duration-500">
 													<Image
 														src={site.photo}
 														alt={site.name}
@@ -173,11 +173,11 @@ const Experience = () => {
 					))}
 				</Swiper>
 
-				<button className="experience-prev absolute md:-left-2 left-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-10 md:opacity-0 group-hover/carousel:opacity-100 -translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 ring-1 ring-white/10 cursor-pointer">
+				<button className="experience-prev absolute md:-left-2 left-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-foreground z-10 md:opacity-0 group-hover/carousel:opacity-100 -translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-white/5 hover:border-border ring-1 ring-white/5 cursor-pointer">
 					<ChevronLeftIcon className="h-6 w-6 " />
 				</button>
 
-				<button className="experience-next absolute md:-right-2 right-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-10 md:opacity-0 group-hover/carousel:opacity-100 translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 ring-1 ring-white/10 cursor-pointer">
+				<button className="experience-next absolute md:-right-2 right-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-foreground z-10 md:opacity-0 group-hover/carousel:opacity-100 translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-white/5 hover:border-border ring-1 ring-white/5 cursor-pointer">
 					<ChevronRightIcon className="h-6 w-6 " />
 				</button>
 			</div>

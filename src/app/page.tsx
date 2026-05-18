@@ -15,7 +15,7 @@ export default function Home() {
 					<About />
 				</section>
 
-				<section id="experience" className="bg-slate-900/30 md:bg-transparent">
+				<section id="experience" className="bg-muted/40 md:bg-transparent">
 					<Experience />
 				</section>
 
@@ -23,7 +23,7 @@ export default function Home() {
 					<Projects />
 				</section>
 
-				<section id="skills" className="bg-slate-900/30 md:bg-transparent">
+				<section id="skills" className="bg-muted/40 md:bg-transparent">
 					<Skills />
 				</section>
 
@@ -31,7 +31,7 @@ export default function Home() {
 					<Education />
 				</section>
 
-				<section id="contact" className="bg-slate-950 md:bg-transparent">
+				<section id="contact" className="bg-secondary md:bg-transparent">
 					<Contact />
 				</section>
 			</main>

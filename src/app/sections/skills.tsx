@@ -328,7 +328,7 @@ const Skills = () => {
 		if (typeof skill.icon === 'function') {
 			const IconComponent = skill.icon;
 			return (
-				<div className="flex items-center justify-center size-14 mx-auto rounded-xl bg-slate-800/50 border border-white/5 text-blue-400 group-hover:text-blue-300 transition-colors">
+				<div className="flex items-center justify-center size-14 mx-auto rounded-xl bg-muted border border-border text-muted-foreground group-hover:text-foreground transition-colors">
 					<IconComponent className="size-8" />
 				</div>
 			);
@@ -348,7 +348,7 @@ const Skills = () => {
 			<motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
 				<div className="flex flex-col items-center gap-4">
 					<h3 className="header text-gradient">Technical Arsenal</h3>
-					<p className="text-slate-400 text-center max-w-2xl text-sm md:text-lg">
+					<p className="text-muted-foreground text-center max-w-2xl text-sm md:text-lg font-normal">
 						A comprehensive toolkit of modern technologies and professional soft skills I use to build robust,
 						scalable applications.
 					</p>
@@ -366,7 +366,7 @@ const Skills = () => {
 						onClick={() => handleSkillClick(skill)}
 					>
 						{renderIcon(skill)}
-						<h2 className="text-center font-medium text-slate-300 transition-colors group-hover:text-white">
+						<h2 className="text-center font-medium text-secondary-foreground transition-colors group-hover:text-foreground">
 							{skill.name}
 						</h2>
 					</motion.div>

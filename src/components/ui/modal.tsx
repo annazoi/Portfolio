@@ -23,7 +23,7 @@ export default function Modal({ onOpen, onClose, name, description, icon }: Moda
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
-						className="fixed inset-0 bg-slate-950/40 backdrop-blur-sm transition-opacity"
+						className="fixed inset-0 bg-background/70 backdrop-blur-sm transition-opacity"
 					/>
 
 					<div className="fixed inset-0 z-10 w-screen overflow-y-auto">
@@ -33,12 +33,12 @@ export default function Modal({ onOpen, onClose, name, description, icon }: Moda
 								initial={{ opacity: 0, scale: 0.95, y: 20 }}
 								animate={{ opacity: 1, scale: 1, y: 0 }}
 								exit={{ opacity: 0, scale: 0.95, y: 20 }}
-								className="relative transform overflow-hidden rounded-2xl bg-slate-900/80 backdrop-blur-xl border border-white/10 p-6 text-left shadow-2xl sm:my-8 sm:w-full sm:max-w-md"
+								className="relative transform overflow-hidden rounded-2xl bg-muted backdrop-blur-xl border border-border p-6 text-left shadow-2xl sm:my-8 sm:w-full sm:max-w-md"
 							>
 								{/* Close Button */}
 								<button
 									onClick={() => onClose(false)}
-									className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+									className="absolute top-4 right-4 p-2 rounded-full text-muted-foreground hover:text-foreground hover:bg-white/5 transition-colors"
 								>
 									<XMarkIcon className="size-5" />
 								</button>
@@ -48,7 +48,7 @@ export default function Modal({ onOpen, onClose, name, description, icon }: Moda
 										{typeof icon === 'function' ? (
 											(() => {
 												const IconComponent = icon;
-												return <IconComponent className="size-10 text-blue-400" />;
+												return <IconComponent className="size-10 text-foreground" />;
 											})()
 										) : icon ? (
 											<Image src={icon} alt={name} fill className="object-contain p-4" />
@@ -56,10 +56,10 @@ export default function Modal({ onOpen, onClose, name, description, icon }: Moda
 									</div>
 
 									<div className="text-center">
-										<DialogTitle as="h3" className="text-2xl font-bold text-white mb-3">
+										<DialogTitle as="h3" className="text-2xl font-semibold text-foreground mb-3 tracking-tight">
 											{name}
 										</DialogTitle>
-										<p className="text-slate-400 leading-relaxed">
+										<p className="text-muted-foreground leading-relaxed font-normal">
 											{description}
 										</p>
 									</div>
@@ -69,7 +69,7 @@ export default function Modal({ onOpen, onClose, name, description, icon }: Moda
 									<button
 										type="button"
 										onClick={() => onClose(false)}
-										className="px-8 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:scale-[1.02] transition-all"
+										className="px-8 py-3 rounded-xl bg-primary text-primary-foreground font-medium hover:bg-foreground/90 hover:scale-[1.01] transition-all"
 									>
 										Got it!
 									</button>

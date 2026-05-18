@@ -31,7 +31,7 @@ export default function StatusMessage({ type, message }: StatusMessageProps) {
 					animate={{ opacity: 1, y: 0 }}
 					exit={{ opacity: 0, y: -10 }}
 					transition={{ duration: 0.3 }}
-					className="flex items-center gap-2 p-4 rounded-xl bg-gradient-to-r from-primary/10 to-primary/20 border border-primary/30 backdrop-blur-sm shadow-lg"
+					className="flex items-center gap-2 p-4 rounded-xl bg-muted border border-border backdrop-blur-sm"
 				>
 					{iconMap[type]}
 					<p className={`text-sm font-medium ${type === 'success' ? 'text-green-400' : 'text-red-400'}`}>

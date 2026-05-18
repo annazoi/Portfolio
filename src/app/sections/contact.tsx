@@ -58,17 +58,17 @@ const Contact = () => {
 					className="flex-1 flex flex-col md:gap-8 gap-2 text-center lg:text-left"
 				>
 					<div className="flex flex-col gap-4">
-						<h2 className="text-xl lg:text-5xl font-extrabold text-white">
-							Let's build something <span className="text-gradient">amazing</span> together.
+						<h2 className="font-display text-xl lg:text-5xl font-semibold text-foreground tracking-tight">
+							Let's build something amazing together.
 						</h2>
 					</div>
-					<p className="text-slate-400 md:text-lg text-sm leading-relaxed">
+					<p className="text-muted-foreground md:text-lg text-sm leading-relaxed font-normal">
 						Whether you have a question or just want to say hi, I'll try my best to get back to you!
 					</p>
 					<div className="flex flex-col gap-4 mt-4">
 						<a
 							href="mailto:anna.zoi@yahoo.com"
-							className="md:text-xl text-lg font-semibold text-white hover:text-primary transition-colors"
+							className="md:text-xl text-lg font-medium text-foreground hover:text-primary transition-colors"
 						>
 							anna.zoi@yahoo.com
 						</a>
@@ -147,12 +147,12 @@ const Contact = () => {
 								<button
 									type="submit"
 									disabled={status === 'sending'}
-									className="cursor-pointer bg-primary md:text-lg text-sm text-white font-bold py-2 px-4 md:py-4 md:px-6 rounded-xl md:rounded-2xl hover:bg-primary/80 transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-primary/20 md:mt-4 mt-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100"
+									className="cursor-pointer bg-primary md:text-lg text-sm text-primary-foreground font-medium py-2 px-4 md:py-4 md:px-6 rounded-xl md:rounded-2xl hover:bg-foreground/90 transition-all hover:scale-[1.01] active:scale-95 md:mt-4 mt-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100"
 								>
 									{status === 'sending' ? 'Sending…' : 'Send Message'}
 								</button>
 							</div>
-							<div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover/form:opacity-100 transition-opacity" />
+							<div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover/form:opacity-100 transition-opacity" />
 						</form>
 					</motion.div>
 				</motion.div>

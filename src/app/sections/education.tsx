@@ -55,7 +55,7 @@ const Education = () => {
 				className="flex flex-col items-center gap-4"
 			>
 				<h3 className="header text-gradient">Education</h3>
-				<p className="text-slate-400 text-center max-w-2xl text-sm md:text-lg">
+				<p className="text-muted-foreground text-center max-w-2xl text-sm md:text-lg font-normal">
 					Academic background and continuous learning in the field of engineering and technology.
 				</p>
 			</motion.div>
@@ -75,16 +75,16 @@ const Education = () => {
 
 				<div className="relative z-10 lg:w-2/3 flex flex-col md:gap-6 gap-2 lg:text-left text-center">
 					<div className="flex flex-col gap-2">
-						<p className="text-primary font-bold tracking-wider uppercase text-xs">Degree</p>
-						<p className="text-xl lg:text-4xl font-extrabold text-white">Master’s Degree</p>
+						<p className="text-muted-foreground font-medium tracking-wider uppercase text-xs">Degree</p>
+						<p className="text-xl lg:text-4xl font-semibold text-foreground tracking-tight">Master’s Degree</p>
 					</div>
 					<div className="flex flex-col gap-1">
-						<p className="text-lg lg:text-2xl text-slate-300">in Electrical & Computer Engineering</p>
-						<p className="text-slate-400 font-medium">Hellenic Mediterranean University</p>
+						<p className="text-lg lg:text-2xl text-secondary-foreground font-normal">in Electrical & Computer Engineering</p>
+						<p className="text-muted-foreground font-normal">Hellenic Mediterranean University</p>
 					</div>
 				</div>
 
-				<div className="absolute inset-0 bg-primary/5 opacity-0 group-hover/edu:opacity-100 transition-opacity" />
+				<div className="absolute inset-0 bg-white/[0.02] opacity-0 group-hover/edu:opacity-100 transition-opacity" />
 			</motion.div>
 		</div>
 	);

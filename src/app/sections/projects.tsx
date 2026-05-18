@@ -146,7 +146,7 @@ const Projects = () => {
 				className="flex flex-col items-center gap-4 md:mb-16 mb-5"
 			>
 				<h3 className="header text-gradient">Featured Projects</h3>
-				<p className="text-slate-400 text-center max-w-2xl text-sm md:text-lg">
+				<p className="text-muted-foreground text-center max-w-2xl text-sm md:text-lg font-normal">
 					A selection of my recent work, ranging from real-time collaboration tools to complex full-stack
 					applications.
 				</p>
@@ -186,10 +186,10 @@ const Projects = () => {
 								className="block relative h-full cursor-pointer group"
 							>
 								{/* Animated Border Wrapper */}
-								<div className="relative p-[1px] rounded-[2rem] overflow-hidden bg-white/10 group-hover:bg-transparent transition-colors duration-500">
+								<div className="relative p-[1px] rounded-[2rem] overflow-hidden bg-border group-hover:bg-transparent transition-colors duration-500">
 									<div className="absolute inset-0 opacity-0 group-hover:opacity-100 animate-border-flow transition-opacity duration-500" />
 
-									<div className="relative overflow-hidden rounded-[calc(2rem-1px)] aspect-[16/10] bg-slate-900 border border-white/5 shadow-2xl flex items-center justify-center">
+									<div className="relative overflow-hidden rounded-[calc(2rem-1px)] aspect-[16/10] bg-muted border border-border shadow-2xl flex items-center justify-center">
 										{project.photo && (
 											<Image
 												src={project.photo}
@@ -202,8 +202,8 @@ const Projects = () => {
 
 										{/* Cyber Tag */}
 										<div className="absolute top-6 left-6 flex items-center gap-2 scale-90 opacity-100 group-hover:opacity-0 group-hover:scale-75 transition-all duration-500 origin-top-left">
-											<div className="bg-primary cyber-clip px-6 py-2 shadow-[0_0_20px_rgba(79,57,246,0.6)]">
-												<p className="text-[10px] font-black tracking-[0.2em] text-white uppercase glow-text-primary italic">
+											<div className="bg-foreground/10 backdrop-blur-sm border border-border px-5 py-2 rounded-full">
+												<p className="text-[10px] font-medium tracking-[0.15em] text-foreground uppercase">
 													{project.name}
 												</p>
 											</div>
@@ -211,19 +211,19 @@ const Projects = () => {
 
 										{/* Immersive Reveal */}
 										<div className="absolute inset-0 flex flex-col justify-center p-6 scale-95 group-hover:scale-100 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out">
-											<div className="bg-black/60 backdrop-blur-2xl p-6 rounded-3xl border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.5)] flex flex-col gap-4">
+											<div className="bg-background/80 backdrop-blur-2xl p-6 rounded-3xl border border-border flex flex-col gap-4">
 												<div className="flex justify-between items-start">
-													<h4 className="text-2xl font-bold text-white tracking-tight">{project.name}</h4>
-													<div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center animate-pulse border border-primary/30">
-														<div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_10px_rgba(79,57,246,1)]" />
+													<h4 className="text-2xl font-semibold text-foreground tracking-tight">{project.name}</h4>
+													<div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-border">
+														<div className="w-1.5 h-1.5 rounded-full bg-foreground/60" />
 													</div>
 												</div>
-												<p className="text-sm text-slate-200 leading-relaxed font-medium line-clamp-3">
+												<p className="text-sm text-secondary-foreground leading-relaxed font-normal line-clamp-3">
 													{project.description}
 												</p>
-												<div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest mt-2 group/btn cursor-pointer">
+												<div className="flex items-center gap-2 text-muted-foreground font-medium text-xs uppercase tracking-widest mt-2 group/btn cursor-pointer">
 													<span>View Details</span>
-													<div className="w-8 h-px bg-primary/30 group-hover/btn:w-12 transition-all duration-300" />
+													<div className="w-8 h-px bg-border group-hover/btn:w-12 transition-all duration-300" />
 												</div>
 											</div>
 										</div>
@@ -234,11 +234,11 @@ const Projects = () => {
 					))}
 				</Swiper>
 
-				<button className="projects-prev absolute md:-left-2 left-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-10 md:opacity-0 group-hover/carousel:opacity-100 -translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 ring-1 ring-white/10 cursor-pointer">
+				<button className="projects-prev absolute md:-left-2 left-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-foreground z-10 md:opacity-0 group-hover/carousel:opacity-100 -translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-white/5 hover:border-border ring-1 ring-white/5 cursor-pointer">
 					<ChevronLeftIcon className="h-6 w-6 " />
 				</button>
 
-				<button className="projects-next absolute md:-right-2 right-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-white z-10 md:opacity-0 group-hover/carousel:opacity-100 translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-primary/20 hover:border-primary/40 ring-1 ring-white/10 cursor-pointer">
+				<button className="projects-next absolute md:-right-2 right-2 top-1/2 -translate-y-1/2 glass p-3 rounded-full text-foreground z-10 md:opacity-0 group-hover/carousel:opacity-100 translate-x-4 group-hover/carousel:translate-x-0 transition-all duration-300 hover:bg-white/5 hover:border-border ring-1 ring-white/5 cursor-pointer">
 					<ChevronRightIcon className="h-6 w-6 " />
 				</button>
 			</motion.div>

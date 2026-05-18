@@ -47,7 +47,7 @@ export default function Navbar() {
 			<nav
 				className={classNames(
 					'sticky top-0 z-50 transition-all duration-500',
-					scrolled ? 'bg-background/80 backdrop-blur-xl border-b border-slate-800/50' : 'bg-transparent',
+					scrolled ? 'bg-background/80 backdrop-blur-xl border-b border-border' : 'bg-transparent',
 				)}
 			>
 				<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -59,7 +59,7 @@ export default function Navbar() {
 								</a>
 								<a
 									href="mailto:anna.zoi@yahoo.com"
-									className="hidden lg:block text-slate-400 hover:text-white transition-colors text-sm font-medium"
+									className="hidden lg:block text-muted-foreground hover:text-foreground transition-colors text-sm font-medium"
 								>
 									<span>anna.zoi@yahoo.com</span>
 								</a>
@@ -70,7 +70,7 @@ export default function Navbar() {
 										<a
 											key={item.name}
 											href={item.href}
-											className="rounded-xl px-4 py-2 text-sm font-medium transition-all duration-200 border border-transparent text-slate-300 hover:bg-white/5 hover:text-white ring-1 ring-white/5"
+											className="rounded-xl px-4 py-2 text-sm font-medium transition-all duration-200 border border-transparent text-secondary-foreground hover:bg-white/5 hover:text-foreground ring-1 ring-white/5"
 										>
 											{item.name}
 										</a>
@@ -83,7 +83,7 @@ export default function Navbar() {
 						<div className="flex sm:hidden">
 							<button
 								onClick={() => setIsOpen(true)}
-								className="cursor-pointer group relative inline-flex items-center justify-center p-2 text-white hover:text-white/80 focus:outline-none "
+								className="cursor-pointer group relative inline-flex items-center justify-center p-2 text-foreground hover:text-foreground/70 focus:outline-none "
 							>
 								<span className="sr-only">Open main menu</span>
 								<div className="flex flex-col gap-1.5 items-end">
@@ -105,7 +105,7 @@ export default function Navbar() {
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
 						transition={{ duration: 0.3 }}
-						className="fixed inset-0 z-[100] bg-slate-950 flex flex-col sm:hidden"
+						className="fixed inset-0 z-[100] bg-background flex flex-col sm:hidden"
 					>
 						{/* Subtle Grid Background */}
 						<div className="absolute inset-0 opacity-10 bg-grid pointer-events-none" />
@@ -117,7 +117,7 @@ export default function Navbar() {
 									<img alt="Anna Zoi" src="/logo.png" className="h-10 w-auto" />
 									<button
 										onClick={() => setIsOpen(false)}
-										className="group p-2 rounded-xl bg-white/5 text-slate-400 hover:text-white cursor-pointer transition-all active:scale-95"
+										className="group p-2 rounded-xl bg-white/5 text-muted-foreground hover:text-foreground cursor-pointer transition-all active:scale-95"
 									>
 										<div className="relative size-6 flex items-center justify-center">
 											<span className="absolute h-0.5 w-6 bg-current rounded-full rotate-45 transition-transform duration-300 group-hover:rotate-135" />
@@ -144,10 +144,10 @@ export default function Navbar() {
 											onClick={() => setIsOpen(false)}
 											className="flex items-baseline gap-6 py-1"
 										>
-											<span className="text-slate-700 text-xs font-black tracking-widest italic font-mono opacity-50">
+											<span className="text-muted-foreground/40 text-xs font-medium tracking-widest font-mono">
 												{(idx + 1).toString().padStart(2, '0')}
 											</span>
-											<span className="text-2xl xs:text-4xl font-black text-slate-500 group-hover:text-white transition-all duration-500 uppercase italic tracking-tighter group-hover:translate-x-4">
+											<span className="text-2xl xs:text-4xl font-semibold text-secondary-foreground group-hover:text-foreground transition-all duration-500 tracking-tight group-hover:translate-x-4">
 												{item.name}
 											</span>
 										</a>
@@ -162,12 +162,12 @@ export default function Navbar() {
 								transition={{ delay: 0.4, duration: 0.5 }}
 								className="mt-auto pt-8 border-t border-white/5 flex flex-col gap-4"
 							>
-								<p className="text-slate-500 text-[10px] font-black uppercase tracking-[0.4em] italic">
+								<p className="text-muted-foreground text-[10px] font-medium uppercase tracking-[0.35em]">
 									Let&apos;s talk
 								</p>
 								<a
 									href="mailto:anna.zoi@yahoo.com"
-									className="text-xl text-white font-bold hover:text-primary transition-colors italic tracking-tight"
+									className="text-xl text-foreground font-medium hover:text-primary transition-colors tracking-tight"
 								>
 									anna.zoi@yahoo.com
 								</a>

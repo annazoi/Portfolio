@@ -1,25 +1,26 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Noto_Sans_Mono, Inter } from 'next/font/google';
+import { DM_Sans, Ms_Madi, Noto_Sans_Mono, Quicksand } from 'next/font/google';
 import './globals.css';
 
-const geistSans = Geist({
-	variable: '--font-geist-sans',
+const dmSans = DM_Sans({
 	subsets: ['latin'],
+	variable: '--font-dm-sans',
 });
 
-const geistMono = Geist_Mono({
-	variable: '--font-geist-mono',
+const msMadi = Ms_Madi({
 	subsets: ['latin'],
+	weight: '400',
+	variable: '--font-ms-madi',
 });
 
-const inter = Inter({
+const quicksand = Quicksand({
 	subsets: ['latin'],
-	variable: '--font-inter',
+	variable: '--font-quicksand',
 });
 
 const notoSansMono = Noto_Sans_Mono({
-	variable: '--font-noto-sans-mono',
 	subsets: ['latin'],
+	variable: '--font-noto-sans-mono',
 });
 
 export const metadata: Metadata = {
@@ -34,7 +35,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${inter.className} ${notoSansMono.variable} ${geistSans.variable} ${geistMono.variable} antialiased selection:bg-primary/30 selection:text-white`}>
+			<body
+				className={`${dmSans.className} ${dmSans.variable} ${msMadi.variable} ${quicksand.variable} ${notoSansMono.variable} antialiased selection:bg-white/15 selection:text-foreground`}
+			>
 				{children}
 			</body>
 		</html>
